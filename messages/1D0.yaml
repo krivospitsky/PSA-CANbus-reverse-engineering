@@ -1,5 +1,25 @@
 id: 0x1D0
 network: CONF
 length: 7
+comment: Climate control information
 bits:
-
+  '0-4': Temperature for right zone
+  '8-12': Temperature for left zone
+  '20': Windshield blowing enabled
+  '21': Air recycling enabled
+  '28-30': Air direction
+  '32-34': Fan speed (0 to 7)
+data:
+  Temperature values:
+      - {'value': '0', 'display': 'LO'}
+      - {'value': '2 ... 5', 'display': '15° ... 18°'}
+      - {'value': '6 ... 16', 'display': '18.5° ... 23.5° (0.5° step)'}
+      - {'value': '17 ... 20', 'display': '24° ... 27°'}
+      - {'value': '22', 'display': 'HI'}
+  Air direction:
+      - {'binary': '011', 'direction': 'Front'}
+      - {'binary': '100', 'direction': 'Up'}
+      - {'binary': '110', 'direction': 'Up + Down'}
+      - {'binary': '010', 'direction': 'Down'}
+      - {'binary': '101', 'direction': 'Front + Down'}
+      - {'binary': '001', 'direction': 'Up (when windshield blowing enabled)'}

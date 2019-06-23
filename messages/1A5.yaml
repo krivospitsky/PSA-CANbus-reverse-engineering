@@ -1,7 +1,7 @@
 id: 0x1A5
 network: CONF
 length: 1
-comment: Audio volume
+comment: "Audio volume (After 2.5 seconds of BBB=000 volume popup menu hides)"
 bits:
   '0-4': Volume
   '5-7': Scrolling (111 or 000)

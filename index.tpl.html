@@ -128,7 +128,7 @@
 									{{ bit['comment'] | replace('\n', '<br />') }}
 								</div>
 							</div>
-							{% if (bit_nr.count-diff)%8 == 0 %}
+							{% if (bit_nr.count-diff)%8 == 0 and bit['position'] != 0%}
 							<div class="bits">&nbsp;</div>
 							{% endif %}
 
@@ -143,12 +143,12 @@
 							{% endif %}
 
 							<div class="bits">
-								{% for i in range(bit_nr.count, (bit_nr.count-diff)-bit['length'], -1) %}{% if i%8 ==0 %}{{ bit['char'] }} {%else%}{{ bit['char'] }}{%endif%}{%endfor%}
+								{% for i in range(bit['end'], bit['start']-1, -1) %}{% if i%8 ==0 %}{{ bit['char'] }} {%else%}{{ bit['char'] }}{%endif%}{%endfor%}
 								<div class="info offset-{{ bit['offset'] }}">
 									{{ bit['comment'] | replace('\n', '<br />') }}
 								</div>
 							</div>
-							{% if (bit_nr.count-diff)%8 == 0 %}
+							{% if (bit['start'])%8 == 0 and bit['start'] != 0%}
 								<div class="bits">&nbsp;</div>
 							{% endif %}
 						{% endif %}
