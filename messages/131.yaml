@@ -1,5 +1,20 @@
 id: 0x131
 network: CONF
 length: 5
+comment: CD Changer commands
 bits:
+  '0-7': Go to track no. 0x00 = do nothing
+  '16-23': Go to dick no. 0x00 = do nothing
+  '24': Random mode
+  '31': Repeat mode
+  '33': Enable or disable playing
+  '34': Track intro mode
+  '35': To start of current track
+  '36': |
+      "1 & !playing & intro mode - FastForward"
+      "0 & !playing & intro mode - FastBackward"
+      "1 in other time"
+  '37': Single track forward
+  '38': Single track back
+  '39': Enable/Disable (when radio on/off)
 

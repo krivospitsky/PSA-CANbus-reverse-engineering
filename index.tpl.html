@@ -118,8 +118,8 @@
 							{# Set previous empty bits #}
 							{% if bit_nr.count-bit['position'] != 0 %}
 							<div class="bits">{% for i in range(bit_nr.count, bit_nr.count-diff+1, -1) %}{% if i%8 ==0 %}0 {%else%}0{%endif%}{%endfor%}</div>
-							{% if bit_nr.count-(diff-1)%8 == 0 %}<div class="bits">&nbsp;</div>{% endif %}
 							{% endif %}
+							{% if (bit_nr.count-diff+1)%8 == 0 %}<div class="bits">&nbsp;</div>{% endif %}
 
 							{# Set current bit #}
 							<div class="bits">
@@ -128,19 +128,21 @@
 									{{ bit['comment'] | replace('\n', '<br />') }}
 								</div>
 							</div>
-							{% if (bit_nr.count-diff)%8 == 0 and bit['position'] != 0%}
+							{#% if (bit_nr.count-diff)%8 == 0 and bit['position'] != 0%}
 							<div class="bits">&nbsp;</div>
-							{% endif %}
+							{% endif %#}
 
+							{# Decrement bit_nr #}
+							{% set bit_nr.count = bit_nr.count - (diff) %}
 						{# If multiple bits #}
 						{% else %}
 							{% set diff = bit_nr.count - bit['end'] %}
 
 							{# Set previous empty bits #}
-							{% if bit_nr.count-bit['end'] != 0 %}
+							{% if bit_nr.count-1-bit['end'] != 0 %}
 							<div class="bits">{% for i in range(bit_nr.count, bit_nr.count-diff, -1) %}{% if i%8 == 0 %}0 {%else%}0{%endif%}{%endfor%}</div>
-							{% if bit_nr.count-(diff-1)%8 == 0 %}<div class="bits">&nbsp;</div>{% endif %}
 							{% endif %}
+							{% if (bit_nr.count-diff+1)%8 == 0 %}<div class="bits">&nbsp;</div>{% endif %}
 
 							<div class="bits">
 								{% for i in range(bit['end'], bit['start']-1, -1) %}{% if i%8 ==0 %}{{ bit['char'] }} {%else%}{{ bit['char'] }}{%endif%}{%endfor%}
@@ -151,10 +153,10 @@
 							{% if (bit['start'])%8 == 0 and bit['start'] != 0%}
 								<div class="bits">&nbsp;</div>
 							{% endif %}
-						{% endif %}
 
-						{# Decrement bit_nr #}
-						{% set bit_nr.count = bit_nr.count - (diff + bit['length']) %}
+							{# Decrement bit_nr #}
+							{% set bit_nr.count = bit_nr.count - (diff + bit['length']) %}
+						{% endif %}
 					{% endfor %}
 					<div class="bits">{% for i in range(bit_nr.count, 0, -1) %}{% if (i-1)%8 == 0 %}0 {%else%}0{%endif%}{%endfor%}</div>
 				</div>
