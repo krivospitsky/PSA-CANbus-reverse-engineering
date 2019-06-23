@@ -53,7 +53,6 @@ for raw_file in glob('messages/*.yaml'):
                 bit_def['start'] = int(bit_name.split('-')[0])
                 bit_def['end'] = int(bit_name.split('-')[1])
                 bit_def['length'] = int(bit_def['end'])-int(bit_def['start'])+1
-                print(bit_def['length'])
             else:
                 bit_def['position'] = int(bit_name.replace('?', ''))
                 bit_def['length'] = 1
