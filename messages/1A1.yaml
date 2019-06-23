@@ -1,5 +1,6 @@
 id: 0x1A1
 network: CONF
 length: 8
+comment: Informative message (for EMF)
 bits:
 

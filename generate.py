@@ -52,7 +52,8 @@ for raw_file in glob('messages/*.yaml'):
                 bit_def['multiple'] = True
                 bit_def['start'] = int(bit_name.split('-')[0])
                 bit_def['end'] = int(bit_name.split('-')[1])
-                bit_def['length'] = int(bit_def['end'])-int(bit_def['start'])
+                bit_def['length'] = int(bit_def['end'])-int(bit_def['start'])+1
+                print(bit_def['length'])
             else:
                 bit_def['position'] = int(bit_name.replace('?', ''))
                 bit_def['length'] = 1
@@ -78,7 +79,7 @@ for raw_file in glob('messages/*.yaml'):
             if '?' in bit_name:
                 continue
             if '-' in bit_name:
-                total_bits = int(bit_name.split('-')[1])-int(bit_name.split('-')[0])+1
+                total_bits += int(bit_name.split('-')[1])-int(bit_name.split('-')[0])+1
             else:
                 total_bits += 1
         frame_data['percentage'] = 100 * float(total_bits) / (data.get('length', 8)*8)

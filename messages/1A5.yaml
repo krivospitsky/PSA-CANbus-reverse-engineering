@@ -1,5 +1,7 @@
 id: 0x1A5
 network: CONF
 length: 1
+comment: Audio volume
 bits:
-
+  '0-4': Volume
+  '5-7': Scrolling (111 or 000)

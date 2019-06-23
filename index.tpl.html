@@ -143,7 +143,7 @@
 							{% endif %}
 
 							<div class="bits">
-								{% for i in range(bit_nr.count, bit_nr.count-diff-bit['length'], -1) %}{% if i%8 ==0 %}{{ bit['char'] }} {%else%}{{ bit['char'] }}{%endif%}{%endfor%}
+								{% for i in range(bit_nr.count, (bit_nr.count-diff)-bit['length'], -1) %}{% if i%8 ==0 %}{{ bit['char'] }} {%else%}{{ bit['char'] }}{%endif%}{%endfor%}
 								<div class="info offset-{{ bit['offset'] }}">
 									{{ bit['comment'] | replace('\n', '<br />') }}
 								</div>
