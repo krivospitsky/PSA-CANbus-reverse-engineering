@@ -17,13 +17,15 @@ for raw_file in glob('messages/*.yaml'):
             continue
 
         # Checks
-        if not 'id' in data:
+        if not 'id' in data or not data['id']:
             print('ERROR: No id in {}'.format(raw_file))
             continue
-        if not 'bits' in data:
+        if not 'bits' in data or not data['bits']:
             print('ERROR: No bits in {}'.format(raw_file))
-        if not 'length' in data:
+            continue
+        if not 'length' in data or not data['length']:
             print('ERROR: No length in {}'.format(raw_file))
+            continue
         print('Doing {:03X}'.format(data.get('id')))
         frames.append('{:03X}'.format(data.get('id')))
 
