@@ -1,0 +1,15 @@
+id: 0x036
+length: 4
+source: BSI
+network: CONF
+comment: This does stuff
+bits:
+  '1-5': |
+      test1
+      doing this or that
+  '8': test2
+  '9': test3
+data:
+  Left Front:
+    - {bits: '11', value: 'enabled'}
+    - {bits: '00', value: 'disabled'}

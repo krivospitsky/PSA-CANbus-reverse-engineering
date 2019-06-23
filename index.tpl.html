@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PSA CAN</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>PSA CAN bus</h1>
+            <div>
+				<h3>Legend <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#legend">H/S</button></h3>
+				<div id="legend" class="row collapse">
+					<div class="col-sm-4"/>
+						<h4>Status in IDs and bytes</h4>
+						<ul>
+							<li><span class="label label-danger">NRE</span> Not reverse engineered yet</li>
+							<li><span class="label label-warning">PRE</span> Partially reverse engineered</li>
+							<li><span class="label label-success">FRE</span> Fully reverse engineered</li>
+							<li><span class="label label-default">NU</span> Probably not used</li>
+						</ul>
+					</div>
+
+					<div class="col-sm-4"/>
+						<h4>Vehicles (known for using this ID)</h4>
+						<ul>
+							<li><span class="label label-info">207 Ph1</span> Peugeot 207 (2004-2011)</li>
+						</ul>
+					</div>
+
+					<div class="col-sm-4"/>
+						<h4>CAN Bus</h4>
+						<ul>
+							<li><span class="label label-success">CONF (Comfort)</span></li>
+							<li><span class="label label-warning">CAR (Body)</span></li>
+							<li><span class="label label-danger">IS (Inter System)</span></li>
+						</ul>
+					</div>
+				</div>
+            </div>
+
+			<div>
+				<h3>ID Index <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#id_list">H/S</button></h3>
+				<div id="id_list" class="collapse">
+					<table id="id_list" class="table table-hover table-condensed">
+                		<tbody>
+							{% for msb in range(0, 95) %}
+								<tr>
+									{% for lsb in range(0, 16) %}
+									{% if '%02X%X'| format(msb,lsb) in frames %}
+										<td>{{ '%02X' | format(msb) }}{{ '%X' | format(lsb) }}</td>
+									{% else %}
+										<td class="label-default">{{ '%02X' | format(msb) }}{{ '%X' | format(lsb) }}</td>
+										{% endif %}
+									{% endfor %}
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div>
+				<h3> Table of contents <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#table_contents">H/S</button></h3>
+				<div id="table_contents">
+					<table class="table table-hover">
+						<thead>
+							<th>ID</th>
+							<th>Length</th>
+							<th>Period</th>
+							<th>Source</th>
+							<th>Comment</th>
+							<th>Status</th>
+						</thead>
+						<tbody>
+							{% for frame in can_data %}
+								<tr>
+									<td>{{ '%03X' | format(frame['id']) }}</td>
+									<td>{{ frame['length'] }}</td>
+									<td>{{ frame['period'] }}</td>
+									<td>{{ frame['source'] }}</td>
+									<td>{{ frame['comment'] }}</td>
+									{% if frame['status'] == 'FRE' %}
+										<td class="success">Done</td>
+									{% elif frame['status'] == 'NRE' %}
+										<td class="danger">--</td>
+									{% elif frame['status'] == 'PRE' %}
+										<td class="info">{{ frame['percentage'] | int }}%</td>
+									{% endif %}
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<hr />
+
+			{% for frame in can_data %}
+			<div class="message" id="{{ '%03X' | format(frame['id']) }}">
+				{% if 'name' in frame %}
+					<h3>ID {{ '%03X' | format(frame['id']) }} ({{ name }})</h3>
+				{% else %}
+					<h3>ID {{ '%03X' | format(frame['id']) }}</h3>
+				{% endif %}
+				<p>{{ frame['comment'] }}</p>
+				<div class="network">Network: {{ frame['network'] }}</div>
+				<div class="source">Source: <span class="label label-primary">{{ frame['source'] }}</span></div>
+				<div class="structure clearfix margin-{{ frame['bits'][-1]['offset'] }}">
+					{% set bit_nr = namespace(count=(frame['length']*8-1)) %}
+					{% for bit in frame['bits'][::-1] %}
+
+						{# If single bit #}
+						{% if 'position' in bit %}
+							{% set diff = bit_nr.count - bit['position'] %}
+
+							{# Set previous empty bits #}
+							{% if bit_nr.count-bit['position'] != 0 %}
+							<div class="bits">{% for i in range(bit_nr.count, bit_nr.count-diff+1, -1) %}{% if i%8 ==0 %}0 {%else%}0{%endif%}{%endfor%}</div>
+							{% if bit_nr.count-(diff-1)%8 == 0 %}<div class="bits">&nbsp;</div>{% endif %}
+							{% endif %}
+
+							{# Set current bit #}
+							<div class="bits">
+								{{ bit['char'] }}
+								<div class="info offset-{{ bit['offset'] }}">
+									{{ bit['comment'] | replace('\n', '<br />') }}
+								</div>
+							</div>
+							{% if (bit_nr.count-diff)%8 == 0 %}
+							<div class="bits">&nbsp;</div>
+							{% endif %}
+
+						{# If multiple bits #}
+						{% else %}
+							{% set diff = bit_nr.count - bit['end'] %}
+
+							{# Set previous empty bits #}
+							{% if bit_nr.count-bit['end'] != 0 %}
+							<div class="bits">{% for i in range(bit_nr.count, bit_nr.count-diff, -1) %}{% if i%8 == 0 %}0 {%else%}0{%endif%}{%endfor%}</div>
+							{% if bit_nr.count-(diff-1)%8 == 0 %}<div class="bits">&nbsp;</div>{% endif %}
+							{% endif %}
+
+							<div class="bits">
+								{% for i in range(bit_nr.count, bit_nr.count-diff-bit['length'], -1) %}{% if i%8 ==0 %}{{ bit['char'] }} {%else%}{{ bit['char'] }}{%endif%}{%endfor%}
+								<div class="info offset-{{ bit['offset'] }}">
+									{{ bit['comment'] | replace('\n', '<br />') }}
+								</div>
+							</div>
+							{% if (bit_nr.count-diff)%8 == 0 %}
+								<div class="bits">&nbsp;</div>
+							{% endif %}
+						{% endif %}
+
+						{# Decrement bit_nr #}
+						{% set bit_nr.count = bit_nr.count - (diff + bit['length']) %}
+					{% endfor %}
+					<div class="bits">{% for i in range(bit_nr.count, 0, -1) %}{% if (i-1)%8 == 0 %}0 {%else%}0{%endif%}{%endfor%}</div>
+				</div>
+
+				{# Tables of data #}
+				{% if frame['data'] != None %}
+					<div class="row">
+					{% for table in frame['data'] %}
+						<div class="col-lg-3 col-md-3 col-sm-3">
+							<table class="table table-condensed" style="width: auto;">
+								<thead>
+									{% for header in table['headers'] %}<th>{{header}}</th>{%endfor%}
+								</thead>
+								<tbody>
+									{% for row in table['data'] %}
+										<tr>
+											{% for name, col in row.items() %}<td>{{col}}</td>{% endfor %}
+										</tr>
+									{% endfor %}
+									<tr>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+			<hr />
+			{% endfor %}
+        </div>
+    </body>
+</html>
