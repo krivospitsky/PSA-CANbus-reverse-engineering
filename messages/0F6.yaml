@@ -1,5 +1,12 @@
 id: 0x0F6
 network: CONF
 length: 8
+comment: 'Some BSI informations'
 bits:
-
+  '0': Turn signal left
+  '1': Turn signal right
+  '7': Reverse light
+  '8-15': Temperature, round(data/2.0 - 39.5)
+  '24-47': Odometer
+  '48-55': Coolant temperature, data-39
+  '58': Ignition on/off

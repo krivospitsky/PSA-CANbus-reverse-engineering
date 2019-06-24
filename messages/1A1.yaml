@@ -3,4 +3,7 @@ network: CONF
 length: 8
 comment: Informative message (for EMF)
 bits:
+  '47': Show enabled
+  '48-55': Message code
+  '56-63': "Command (0x80: show window, 0x7F: hide window, 0xFF: clear window)"
 

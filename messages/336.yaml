@@ -1,5 +1,6 @@
 id: 0x336
 network: CONF
 length: 3
+comment: First digits of VIN
 bits:
-
+  '0-23': 'ASCII Coded first 3 digits of VIN'

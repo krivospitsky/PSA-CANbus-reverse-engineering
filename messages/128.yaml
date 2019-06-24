@@ -1,5 +1,21 @@
 id: 0x128
 network: CONF
 length: 8
+comment: 'Dashboard lights'
 bits:
+  '0-3': Dashboard backlight
+  '12': Seat belts
+  '13': Seat belts blinks
+  '14': Seat belts
+  '15': Seat belts blinks
+  '23': Low fuel level'
+  '25': Left indicator on
+  '26': Right indicator on
+  '27': Rear fog light on
+  '28': Front fog lights on
+  '29': High beam on
+  '30': Low beam on
+  '40': Sidelights on
+  '52': Any door or trunk open
+  '62': Driver seat belt warning light
 

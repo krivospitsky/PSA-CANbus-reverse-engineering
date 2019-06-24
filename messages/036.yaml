@@ -1,5 +1,17 @@
 id: 0x036
 network: CONF
 length: 8
+comment: 'Some BSI informations'
 bits:
+  '24-26': Ignition mode
+  '32-35': Dashboard brightness
+  '36': Disable dark mode, turn off climate control display
+  '37': Dashboard light enabled
+  '47': Economy mode enabled
+
+data:
+  Ignition mode:
+    - {'bits': '001', 'mode': 'Ignition ON'}
+    - {'bits': '010', 'mode': 'Ignition OFF'}
+    - {'bits': '011', 'mode': 'Unknown, probably starter'}
 

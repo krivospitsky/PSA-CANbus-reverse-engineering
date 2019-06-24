@@ -3,4 +3,45 @@ network: CONF
 length: 7
 comment: Audio settings frame
 bits:
-
+  '0-4': Value of musical ambiance
+  '6': Show menu musical ambiance
+  '8-10': Automatic volume (000 or 111)
+  '12': Show menu automatic volume
+  '14': Loudness correction
+  '15': Show menu loudness correction
+  '16-22': Treble
+  '23': Show menu treble
+  '32-38': Bass
+  '39': Show menu bass
+  '40-47': Fader (balance front/rear)
+  '48': Show menu fader
+  '49-55': Balance left/right
+  '56': Show menu balance left/right
+data:
+  Musical Ambiance:
+    - {'bits': '00011', 'Ambiance': 'None'}
+    - {'bits': '00111', 'Ambiance': 'Classical'}
+    - {'bits': '01011', 'Ambiance': 'Jazz-Blues'}
+    - {'bits': '01111', 'Ambiance': 'Pop-Rock'}
+    - {'bits': '10011', 'Ambiance': 'Vocal'}
+    - {'bits': '10111', 'Ambiance': 'Techno'}
+  Bass/Treble/Balance:
+    - {'bits': '0110110', 'Value': '-9'}
+    - {'bits': '0110111', 'Value': '-8'}
+    - {'bits': '0111000', 'Value': '-7'}
+    - {'bits': '0111001', 'Value': '-6'}
+    - {'bits': '0111010', 'Value': '-5'}
+    - {'bits': '0111011', 'Value': '-4'}
+    - {'bits': '0111100', 'Value': '-3'}
+    - {'bits': '0111101', 'Value': '-2'}
+    - {'bits': '0111110', 'Value': '-1'}
+    - {'bits': '0111111', 'Value': '0'}
+    - {'bits': '1000000', 'Value': '+1'}
+    - {'bits': '1000001', 'Value': '+2'}
+    - {'bits': '1000010', 'Value': '+3'}
+    - {'bits': '1000011', 'Value': '+4'}
+    - {'bits': '1000100', 'Value': '+5'}
+    - {'bits': '1000101', 'Value': '+6'}
+    - {'bits': '1000110', 'Value': '+7'}
+    - {'bits': '1000111', 'Value': '+8'}
+    - {'bits': '1001000', 'Value': '+9'}

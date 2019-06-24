@@ -1,5 +1,12 @@
 id: 0x0DF
 network: CONF
 length: 3
+comment: 'Display menu'
 bits:
+  '5': |
+      "Set to 1 when one of popup opens:"
+      "main menu, track list, PTY list, audio menu."
+      "or when inverse or dark mode enabled (for a short time)"
+      "Possible that signals to start capture arrow keys presses by display"
+  '31': 'Set to 1 when main menu, when one of ok-menu opened or when Dark pressed (for a short time)'
 

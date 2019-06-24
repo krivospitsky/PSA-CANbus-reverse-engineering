@@ -1,5 +1,23 @@
 id: 0x221
 network: CONF
 length: 7
+comment: Trip computer infos (instant data)
 bits:
+  '0-23': |
+    'Rest of run to finish'
+    '0x0000-0xEA5B = 0.0-6000.0 km'
+    '0xEA5B-0xFFFE = 6000.0 km'
+    '0xFFFF = "----" km'
+  '24-31': |
+    'Rest of run on current fuel level'
+    '0x0000-0x07D0 = 0-2000 km'
+    '0x07D0-0xFFFF = 2000 km'
+  '32-47': |
+    'Liters per 100km'
+    '0x0000-0x012C = 0.0-30.0'
+    '0x012C-0xFFFF = 30.0'
+  '48': Voice command (on the lights comodo) or unused.
+  '51': Trip computer button
+  '54': 'Set to 1 when rest of run = "----"'
+  '55': 'Set to 1 when liters per 100 is "----"'
 

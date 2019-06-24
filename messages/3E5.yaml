@@ -1,5 +1,18 @@
 id: 0x3E5
 network: CONF
 length: 6
+comment: 'Radio buttons (1 when pushed)'
 bits:
-
+  '0': Left key
+  '2': Right key
+  '4': Down key
+  '6': Up key
+  '26': Dark key
+  '28': Esc key
+  '30': OK key
+  '32': Audio key
+  '36': Mode key
+  '38': Trip key
+  '40': Clim key
+  '44': Tel key
+  '46': Menu key

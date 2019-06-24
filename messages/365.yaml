@@ -1,5 +1,9 @@
 id: 0x365
 network: CONF
 length: 5
+comment: CD infos
 bits:
-
+  '8': Audio (0) or MP3 (1) CD
+  '16-23': CD Full time seconds (FF=no cd)
+  '24-31': CD Full time minutes (FF=no cd)
+  '32-40': Number of tracks on CD (FF=no cd) 

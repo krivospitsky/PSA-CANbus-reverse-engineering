@@ -1,5 +1,10 @@
 id: 0x3A5
 network: CONF
 length: 6
+comment: Current playing CD infos
 bits:
-
+  '8-15': 'Current seconds (FF="--")'
+  '16-23': 'Current minutes (FF="--")'
+  '24-31': 'Total seconds (FF="--")'
+  '32-40': 'Total minutes (FF="--")'
+  '41-28': 'Track number'

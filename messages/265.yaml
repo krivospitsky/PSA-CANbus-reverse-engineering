@@ -1,5 +1,52 @@
 id: 0x265
 network: CONF
 length: 4
+comment: Radio configuration
 bits:
-
+  '0-7': Current station PTY
+  '8-15': PTY menu selected item
+  '20-21': PTY info
+  '22': Show PTY Menu
+  '23': PTY enabled
+  '24': REG mode enabled
+  '25': Traffic info
+  '26': TA found
+  '28': TA enabled
+  '29': RDS found
+  '31': RDS enabled
+data:
+  PTY info:
+    - {'bits': '00', 'config': 'Hide'}
+    - {'bits': '01', 'config': 'Small in 3rd string'}
+    - {'bits': '20', 'config': 'Big in 1st string'}
+  PTY menu items:
+    - {'bits': '00', 'item': 'Deactivate PTY'}
+    - {'bits': '01', 'item': 'News'}
+    - {'bits': '02', 'item': 'Affairs'}
+    - {'bits': '03', 'item': 'Info'}
+    - {'bits': '04', 'item': 'Sport'}
+    - {'bits': '05', 'item': 'Educate'}
+    - {'bits': '06', 'item': 'Drama'}
+    - {'bits': '07', 'item': 'Culture'}
+    - {'bits': '08', 'item': 'Science'}
+    - {'bits': '09', 'item': 'Varied'}
+    - {'bits': '0A', 'item': 'Pop music'}
+    - {'bits': '0B', 'item': 'Rock music'}
+    - {'bits': '0C', 'item': 'Easy music'}
+    - {'bits': '0D', 'item': 'Light music'}
+    - {'bits': '0E', 'item': 'Classical'}
+    - {'bits': '0F', 'item': 'Other music'}
+    - {'bits': '10', 'item': 'Weather'}
+    - {'bits': '11', 'item': 'Finance'}
+    - {'bits': '12', 'item': 'Children'}
+    - {'bits': '13', 'item': 'Social'}
+    - {'bits': '14', 'item': 'Religion'}
+    - {'bits': '15', 'item': 'Phone in'}
+    - {'bits': '16', 'item': 'Travel'}
+    - {'bits': '17', 'item': 'Leisure'}
+    - {'bits': '18', 'item': 'Jazz'}
+    - {'bits': '19', 'item': 'Country'}
+    - {'bits': '1A', 'item': 'National/Local music'}
+    - {'bits': '1B', 'item': 'Oldies'}
+    - {'bits': '1C', 'item': 'Folk music'}
+    - {'bits': '1D', 'item': 'Documentaries'}

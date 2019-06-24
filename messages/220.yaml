@@ -1,5 +1,14 @@
 id: 0x220
 network: CONF
 length: 2
+comment: Door status
 bits:
-
+  '11': Trunk status
+  '12': Right back door status
+  '13': Left back door status
+  '14': Right front door status
+  '15': Left front door status
+data:
+  Status:
+    - {'bit': '0', 'status': 'closed'}
+    - {'bit': '1', 'status': 'opened'}

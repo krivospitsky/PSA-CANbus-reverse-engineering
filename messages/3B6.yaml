@@ -1,5 +1,6 @@
 id: 0x3B6
 network: CONF
 length: 6
+comment: Middle part of VIN
 bits:
-
+  '0-47': 'ASCII Coded 4st to 9st digit of VIN'

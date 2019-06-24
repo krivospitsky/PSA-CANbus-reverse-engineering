@@ -1,5 +1,6 @@
 id: 0x2B6
 network: CONF
 length: 8
+comment: Last VIN digits
 bits:
-
+  '0-63': 'ASCII coded last 8 VIN digits'

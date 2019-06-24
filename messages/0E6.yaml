@@ -1,5 +1,12 @@
 id: 0x0E6
 network: CONF
 length: 6
+comment: 'Some BDI informations'
 bits:
-
+  '0-7': Voltage, (data+144)/20
+  '8-23': |
+      Right wheel rotation counter, ABS impulses
+      RPM = data/48 // max=7FFF
+  '24-39': |
+      Left wheel rotation counter, ABS impulses
+      RPM = data/48 // max=7FFF

@@ -1,5 +1,8 @@
 id: 0x325
 network: CONF
 length: 3
+comment: Internal CD infos
 bits:
-
+  '8': CD present
+  '9': CD ready for reading
+  '15': CD inserting or ejecting

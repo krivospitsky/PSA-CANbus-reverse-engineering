@@ -1,5 +1,12 @@
 id: 0x1E0
 network: CONF
 length: 5
+comment: 'Radio config'
 bits:
+  '5': Activate radio text
+  '15': REG mode activated
+  '21': Activate alternative frequencies for RDS
+  '31': CD Repeat
+  '34': Random enabled
+  '36': Track info enabled
 

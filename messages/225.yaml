@@ -1,5 +1,18 @@
 id: 0x225
 network: CONF
 length: 5
+comment: Radio channel
 bits:
-
+  '0-11': Radio frequency (data*0.05+50)
+  '20-22': Radio band
+  '28-30': |
+    'Channel in favorites'
+    '0: not in favories'
+    '1-6: mem1 to mem6'
+    '7: mem--'
+  '32': PTY Search enabled
+  '33': Frequency tuning enabled
+  '34': RDS Search enabled
+  '35': Autoscan enabled
+  '37': 'Direction of autosearch (0 down, 1 up)'
+  '39': Open station list

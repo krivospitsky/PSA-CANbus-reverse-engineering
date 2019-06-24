@@ -1,5 +1,6 @@
 id: 0x167
 network: CONF
 length: 8
+comment: 'Display status'
 bits:
-
+  '53': 'Display darkmode enabled'

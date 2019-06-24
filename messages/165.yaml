@@ -1,5 +1,19 @@
 id: 0x165
 network: CONF
 length: 4
+comment: 'Radio Status'
 bits:
-
+  '12-14': 'Radio input'
+  '20': 'CD Changer available'
+  '21-22': 'CD Changer initialization'
+  '29': 'Silence (sound mute)'
+  '31': 'Radio enabled'
+data:
+  'Radio input':
+    - {'binary': '111', 'input': 'Bluetooth'}
+    - {'binary': '110', 'input': 'USB'}
+    - {'binary': '101', 'input': 'AUX 2'}
+    - {'binary': '100', 'input': 'AUX 1'}
+    - {'binary': '011', 'input': 'CD Changer'}
+    - {'binary': '010', 'input': 'CD (RD4)'}
+    - {'binary': '001', 'input': 'Tuner'}
