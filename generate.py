@@ -16,21 +16,25 @@ for raw_file in glob('messages/*.yaml'):
             print(error)
             continue
 
+        # This will contain the frame to be passed to the jinja template
+        frame_data = {}
+
         # Checks
         if not 'id' in data or not data['id']:
             print('ERROR: No id in {}'.format(raw_file))
             continue
-        if not 'bits' in data or not data['bits']:
-            print('ERROR: No bits in {}'.format(raw_file))
-            continue
         if not 'length' in data or not data['length']:
             print('ERROR: No length in {}'.format(raw_file))
             continue
+        if not 'bits' in data or not data['bits']:
+            #print('ERROR: No bits in {}'.format(raw_file))
+            #continue
+            frame_data['unknown'] = True
+            data['bits'] = {'0-{}'.format(data['length']*8-1): 'Unknown'}
         print('Doing {:03X}'.format(data.get('id')))
         frames.append('{:03X}'.format(data.get('id')))
 
         # Create frame data for the template
-        frame_data = {}
         frame_data['id'] = data.get('id')
         frame_data['length'] = data.get('length')
         frame_data['period'] = data.get('period', 'Not periodic')
@@ -46,6 +50,7 @@ for raw_file in glob('messages/*.yaml'):
         for bit_name, bit_data in data.get('bits', {}).items():
             bit_def = {}
             if '?' in bit_name:
+                bit_name = bit_name.replace('?', '')
                 bit_def['partial'] = True
 
             if '-' in bit_name:

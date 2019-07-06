@@ -3,8 +3,8 @@ network: CONF
 length: 8
 comment: 'Some BSI informations'
 bits:
-  '8-15': Fuel consumption, counter
-  '16-31': Odometer from start, cm
+  '8-15?': Fuel consumption, counter
+  '16-31?': Odometer from start, cm
   '32-47': Actual speed, data*100 in km/h
   '51-63': Tachometer (motor RPMs)
 
