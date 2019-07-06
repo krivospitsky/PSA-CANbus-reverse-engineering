@@ -77,7 +77,7 @@
 						<tbody>
 							{% for frame in can_data %}
 								<tr>
-									<td>{{ '%03X' | format(frame['id']) }}</td>
+									<td><a href="#{{ '%03X' | format(frame['id']) }}">{{ '%03X' | format(frame['id']) }}</a></td>
 									<td>{{ frame['length'] }}</td>
 									<td>{{ frame['period'] }}</td>
 									<td>{{ frame['source'] }}</td>
