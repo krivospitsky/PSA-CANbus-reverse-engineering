@@ -6,7 +6,7 @@ import re
 import yaml
 
 # Get All data
-can_data = []
+can_data = {}
 frames = []
 for raw_file in glob('messages/*.yaml'):
     with open(raw_file, 'r') as content:
@@ -65,14 +65,17 @@ for raw_file in glob('messages/*.yaml'):
             if bit_data == 'Unused':
                 bit_def['unused'] = True
 
-            bit_def['offset'] = bit_offset
-            bit_def['char'] = bit_chars[bit_char]
             bit_def['comment'] = bit_data
-            bit_char += 1
-            if len(bit_data.split('\n')) == 1:
-                bit_offset += 1
+            if bit_data == 'Unused':
+                bit_def['char'] = '-'
             else:
-                bit_offset += len(bit_data.split('\n'))-1
+                bit_def['offset'] = bit_offset
+                bit_def['char'] = bit_chars[bit_char]
+                bit_char += 1
+                if len(bit_data.split('\n')) == 1:
+                    bit_offset += 1
+                else:
+                    bit_offset += len(bit_data.split('\n'))-1
             bits.append(bit_def)
         frame_data['bits'] = bits
 
@@ -106,7 +109,7 @@ for raw_file in glob('messages/*.yaml'):
             tables_data.append({'name': table_name, 'headers': table_headers, 'data': table_data})
         frame_data['data'] = tables_data
 
-        can_data.append(frame_data)
+        can_data[int(frame_data['id'])] = frame_data
 
 with open('index.tpl.html', 'r') as source:
     final = Template(source.read()).render(can_data=can_data, frames=frames)

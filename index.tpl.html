@@ -2,10 +2,10 @@
 <html>
     <head>
         <title>PSA CANbus reverse engineering (CAN2004 version)</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 		<link rel="stylesheet" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -75,7 +75,7 @@
 							<th>Status</th>
 						</thead>
 						<tbody>
-							{% for frame in can_data %}
+							{% for _id, frame in can_data.items()|sort %}
 								<tr>
 									<td><a href="#{{ '%03X' | format(frame['id']) }}">{{ '%03X' | format(frame['id']) }}</a></td>
 									<td>{{ frame['length'] }}</td>
@@ -99,7 +99,7 @@
 			</div>
 			<hr />
 
-			{% for frame in can_data %}
+			{% for _id, frame in can_data.items()|sort %}
 			<div class="message" id="{{ '%03X' | format(frame['id']) }}">
 				{% if 'name' in frame %}
 					<h3>ID {{ '%03X' | format(frame['id']) }} ({{ name }})</h3>
@@ -120,9 +120,11 @@
 					{% set bit_nr = namespace(count=(frame['length']*8-1)) %}
 					{% for bit in frame['bits'][::-1] %}
 						{% if bit['partial'] %}
-						{% set color= 'warning' %}
+						{% set tx_style = 'bg-warning text-black' %}
+						{% elif bit['unused'] %}
+						{% set tx_style = 'bg-secondary text-white' %}
 						{% else %}
-						{% set color = 'success' %}
+						{% set tx_style = 'bg-success text-white' %}
 						{% endif %}
 
 						{# If single bit #}
@@ -130,49 +132,56 @@
 							{% set diff = bit_nr.count - bit['position'] %}
 
 							{# Set previous empty bits #}
-							{% if bit_nr.count-bit['position'] != 0 %}
-							<div class="bits">{% for i in range(bit_nr.count, bit_nr.count-diff+1, -1) %}{% if i%8 ==0 %}<span class="btn-danger">0</span> {%else%}<span class="btn-danger">0</span>{%endif%}{%endfor%}</div>
+							{% if diff != 0 %}
+								<div class="bits">
+									{%- for i in range(bit_nr.count, bit_nr.count-diff, -1) -%}
+										<span class="bg-danger text-white">?</span>{% if i%8 == 0 %}&nbsp;{%endif%}
+									{%- endfor -%}
+								</div>
 							{% endif %}
-							{% if (bit_nr.count-diff+1)%8 == 0 %}<div class="bits">&nbsp;</div>{% endif %}
 
 							{# Set current bit #}
 							<div class="bits">
-								<span class="btn-{{ color }}">{{ bit['char'] }}</span>
-								<div class="info offset-{{ bit['offset'] }}">
-									{{ bit['comment'] | replace('\n', '<br />') }}
-								</div>
+								<span class="{{ tx_style }}">{{ bit['char'] }}</span>{% if bit['position']%8 == 0 %}&nbsp;{% endif %}
+								{% if not bit['unused'] %}
+									<div class="info offset-{{ bit['offset'] }}">
+										{{ bit['comment'] | replace('\n', '<br />') }}
+									</div>
+								{% endif %}
 							</div>
-							{#% if (bit_nr.count-diff)%8 == 0 and bit['position'] != 0%}
-							<div class="bits">&nbsp;</div>
-							{% endif %#}
 
 							{# Decrement bit_nr #}
-							{% set bit_nr.count = bit_nr.count - (diff) %}
+							{% set bit_nr.count = bit_nr.count - diff-1 %}
 						{# If multiple bits #}
 						{% else %}
 							{% set diff = bit_nr.count - bit['end'] %}
 
 							{# Set previous empty bits #}
-							{% if bit_nr.count-1-bit['end'] != 0 %}
-							<div class="bits">{% for i in range(bit_nr.count, bit_nr.count-diff, -1) %}{% if i%8 == 0 %}<span class="btn-danger">0</span> {%else%}<span class="btn-danger">0</span>{%endif%}{%endfor%}</div>
+							{% if diff != 0 %}
+								<div class="bits">
+									{%- for i in range(bit_nr.count, bit_nr.count-diff, -1) -%}
+										<span class="bg-danger text-white">?</span>{% if i%8 == 0 %}&nbsp;{%endif%}
+									{%- endfor -%}
+								</div>
 							{% endif %}
-							{% if (bit_nr.count-diff+1)%8 == 0 %}<div class="bits">&nbsp;</div>{% endif %}
+
 
 							<div class="bits">
-								{% for i in range(bit['end'], bit['start']-1, -1) %}{% if i%8 ==0 %}<span class="btn-{{ color }}">{{ bit['char'] }}</span> {%else%}<span class="btn-{{ color }}">{{ bit['char'] }}</span>{%endif%}{%endfor%}
+								{%- for i in range(bit['end'], bit['start']-1, -1) -%}
+									<span class="{{ tx_style }}">{{ bit['char'] }}</span>{% if i%8 == 0%}&nbsp;{% endif %}
+								{%- endfor -%}
+								{% if not bit['unused'] %}
 								<div class="info offset-{{ bit['offset'] }}">
 									{{ bit['comment'] | replace('\n', '<br />') }} {% if bit['partial'] %}(?){% endif %}
 								</div>
+								{% endif %}
 							</div>
-							{% if (bit['start'])%8 == 0 and bit['start'] != 0%}
-								<div class="bits">&nbsp;</div>
-							{% endif %}
 
 							{# Decrement bit_nr #}
 							{% set bit_nr.count = bit_nr.count - (diff + bit['length']) %}
 						{% endif %}
 					{% endfor %}
-					<div class="bits">{% for i in range(bit_nr.count, 0, -1) %}{% if (i-1)%8 == 0 %}<span class="btn-danger">0</span> {%else%}<span class="btn-danger">0</span>{%endif%}{%endfor%}</div>
+					<div class="bits">{% for i in range(bit_nr.count, 0, -1) %}{% if (i-1)%8 == 0 %}<span class="bg-danger text-white">?</span>&nbsp;{%else%}<span class="bg-danger text-white">?</span>{%endif%}{%endfor%}</div>
 				</div>
 				{% endif %}
 

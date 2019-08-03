@@ -3,9 +3,13 @@ network: CONF
 length: 3
 comment: Steering wheel radio controls
 bits:
-  '8-15': Scroll value
+  '0-7': Scroll value
+  '8-15': Unused
+  '16': Unused
   '17': Source
   '18': Volume down
   '19': Volume up
+  '20': Unused
+  '21': Unused
   '22': Backward
   '23': Forward

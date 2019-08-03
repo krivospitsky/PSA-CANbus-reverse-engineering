@@ -1,5 +1,17 @@
 id: 0x12D
 network: CONF
 length: 8
+comment: 'Climate control direct command (from BSI to the mechanical parts)'
 bits:
+  '32-39': Left mixer flap percentage
+  '48-55': Air direction flap percentage
+  '56-63': Fan speed percentage
+
+data:
+  Air direction values:
+    - {'value': '0x33', 'direction': 'Down'}
+    - {'value': '0x22', 'direction': 'Down+Front'}
+    - {'value': '0x01', 'direction': 'Front'}
+    - {'value': '0x64', 'direction': 'Up'}
+    - {'value': '0x43', 'direction': 'Up+Down'}
 

@@ -3,19 +3,41 @@ network: CONF
 length: 8
 comment: 'Dashboard lights'
 bits:
+  # First byte
   '0-3': Dashboard backlight
-  '12': Seat belts
-  '13': Seat belts blinks
-  '14': Seat belts
-  '15': Seat belts blinks
-  '23': Low fuel level'
+  '4-7': Unused
+
+  # Second byte
+  # Apparently the engaged gear for BVMP
+  # 00 = neutral, 01 = reverse, 90 = 1st gear, 80 = 2nd gear, 70 = 3rd gear
+  # 60 = 4th gear, 50 = 5th gear, 40 = 6th gear
+
+  # Third byte
+  # Bit 16 is unknown and does changes
+  '17': Unused
+  # Bit 18 us unknown and does changes
+  '19': Unused
+  '20': Unused
+  '21': Unused
+  # Bit 22 is unknown and does changes
+  '23': Cluster on
+
+  # Fourth byte (DONE)
+  '24': Unused
   '25': Left indicator on
   '26': Right indicator on
   '27': Rear fog light on
   '28': Front fog lights on
   '29': High beam on
   '30': Low beam on
+  '31': Sidelights on
+
+  # Fifth byte
   '40': Sidelights on
+
+  # Sixth byte
   '52': Any door or trunk open
+
+  # Seventh byte
   '62': Driver seat belt warning light
 
