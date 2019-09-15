@@ -1,6 +1,7 @@
 id: 0x3E5
 network: CONF
 length: 6
+# ETAT_CDT
 comment: 'Radio buttons (1 when pushed)'
 bits:
   '0': Left key

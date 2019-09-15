@@ -1,6 +1,9 @@
 id: 0x0DF
 network: CONF
+# Possibly RD4
+source: UNKNOWN
 length: 3
+# EMF_COE_RAD
 comment: 'Display menu'
 bits:
   '5': |

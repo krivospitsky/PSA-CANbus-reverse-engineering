@@ -1,5 +1,7 @@
+# Sent from the combine
 id: 0x51F
 network: CONF
+source: COMBINE
 length: 8
 bits:
 

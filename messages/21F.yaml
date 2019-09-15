@@ -1,6 +1,7 @@
 id: 0x21F
 network: CONF
 length: 3
+# CDE_RADIO
 comment: Steering wheel radio controls
 bits:
   '0-7': Scroll value

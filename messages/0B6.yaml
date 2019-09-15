@@ -1,10 +1,24 @@
 id: 0x0B6
 network: CONF
+source: BSI
 length: 8
-comment: 'Some BSI informations'
+comment: 'BSI Fast data'
 bits:
-  '8-15?': Fuel consumption, counter
-  '16-31?': Odometer from start, cm
-  '32-47': Actual speed, data*100 in km/h
-  '51-63': Tachometer (motor RPMs)
+  # First byte
+  # Unknown, always 0xD0
+
+  # Second byte
+  # Goes from 0x00 to 0xFF
+
+  # Third byte
+  # Goes from 0x00 to 0xFF
+
+  # Fourth byte
+  # Goes from 0x00 to 0xFF
+
+  # Fifth and sixth bytes: Speed
+  '32-47': Speed*100, in km/h
+
+  # Seventh and Eighth byte: Tachometer
+  '48-63': Tachometer*10 (motor RPMs)
 

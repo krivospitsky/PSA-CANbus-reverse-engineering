@@ -1,6 +1,20 @@
 id: 0x018
 network: CONF
+source: UNKNOWN
 length: 5
-comment: Passenger airbag
+comment: Passenger airbag (?)
 bits:
+  # First byte
+  # Always 0x00
 
+  # Second byte
+  # Always 0x00
+
+  # Third byte
+  # Either 0x00 or 0x20
+
+  # Fourth byte
+  # Always 0x00
+
+  # Fifth byte
+  # Either 0x00 or 0x80

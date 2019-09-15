@@ -1,6 +1,7 @@
 id: 0x365
 network: CONF
 length: 5
+# ETAT_RADIO_CD_DSK
 comment: CD infos
 bits:
   '8': Audio (0) or MP3 (1) CD

@@ -143,11 +143,11 @@
 							{# Set current bit #}
 							<div class="bits">
 								<span class="{{ tx_style }}">{{ bit['char'] }}</span>{% if bit['position']%8 == 0 %}&nbsp;{% endif %}
-								{% if not bit['unused'] %}
+								{%- if not bit['unused'] -%}
 									<div class="info offset-{{ bit['offset'] }}">
 										{{ bit['comment'] | replace('\n', '<br />') }}
 									</div>
-								{% endif %}
+								{%- endif -%}
 							</div>
 
 							{# Decrement bit_nr #}

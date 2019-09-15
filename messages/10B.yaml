@@ -1,5 +1,6 @@
 id: 0x10B
 network: CONF
 length: 6
+# Apparently, steering wheel position sensor
 bits:
 

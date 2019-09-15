@@ -1,5 +1,21 @@
 id: 0x0D6
 network: CONF
+source: UNKNOWN
 length: 5
 bits:
+    # First byte
+    # Always 0x00
 
+    # Second byte
+    # Always 0x00
+
+    # Third byte
+    # 0x01, 0x02, 0x81, 0x82
+    # => Binary flags
+
+    # Fourth byte
+    # 0x20, 0x80, 0x84, 0x92, 0x94, 0xA0, 0xA2, 0xA6, 0xC2
+    # Bits 0 and 4 seems unused
+
+    # Fifth byte
+    # Always 0x00

@@ -1,5 +1,27 @@
 id: 0x161
 network: CONF
 length: 7
+# BSI_TEMP
+comment: 'BSI Temperatures and levels'
 bits:
+  # First byte
+  # Always 0x64 => probably a percentage?
+
+  # Second byte
+  # Always 0x00
+
+  # Third byte
+  # Always 0x00
+
+  # Fourth byte
+  # Either 0x00 or goes from 0x1C (28) to 0x23 (35)
+
+  # Fifth byte
+  # Goes from 0x3C (60) to 0x84 (132)
+
+  # Sixth byte
+  # Always 0x00
+
+  # Seventh byte
+  # Always 0x00
 

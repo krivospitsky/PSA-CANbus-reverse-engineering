@@ -1,10 +1,11 @@
 id: 0x131
 network: CONF
+source: RD4
 length: 5
 comment: CD Changer commands
 bits:
   '0-7': Go to track no. 0x00 = do nothing
-  '16-23': Go to dick no. 0x00 = do nothing
+  '16-23': Go to disk no. 0x00 = do nothing
   '24': Random mode
   '31': Repeat mode
   '33': Enable or disable playing

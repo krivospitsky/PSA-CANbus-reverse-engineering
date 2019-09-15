@@ -1,13 +1,55 @@
 id: 0x036
 network: CONF
+source: BSI
 length: 8
-comment: 'Some BSI informations'
+comment: 'BSI Commands'
 bits:
+  # La trame complete semble etre "ETAT_RESEAU"
+  # Un octet est "ETAT_RESEAU"
+  # -> unused
+  # -> DEM EFFAC_DEF (Demande effacement defaut?)
+  # -> DIAG_MUX_ON -> demande de connection prise obd au can i/s (?)
+  # -> unused
+  # -> INTERD_MEMO_DEF (interdiction memorisation defaut?)
+  # -> PHASE_VIE (3 bits)
+  #    -> 000 = veille (pas de com reseau, attente de reveil)
+  #    -> 001 = normal (reseau fonctionnel, fin d'emission messages de reveil, diagnostic autorise)
+  #    -> 010 = mise en veille (attente d'une demande de veille bsi, pas de com entre organes, permet la sauvegarde des params)
+  #    -> 011 = reveil (init de la com entre organes, pas de supervision (sauf commande_bsi), pas d'emission messages supervision can_ls)
+  #    -> 100 = com_off
+  # PHASE_VIE rend etat de l'activite reseau et la communication du BSD
+  # Son etat doit etre a 1
+  # Le signal LUMINOSITE amene une plage de la veleur de la luminosite de l'affichage du tableau de bord
+  # Visiblement, ca peut etre 15
+
+  # First byte
+  # Either 0xA0 or 0x50
+
+  # Second byte
+  # Always 0x00
+
+  # Third byte
+  # Always 0x00
+
+  # Fourth byte
+  # 0x01, 0x02, 0x03, 0x21
   '24-26': Ignition mode
+
+  # Fifth byte
+  # 0x0F, 0x29
   '32-35': Dashboard brightness
   '36': Disable dark mode, turn off climate control display
   '37': Dashboard light enabled
+
+  # Sixth byte
+  # Always 0x00
   '47': Economy mode enabled
+
+  # Seventh byte
+  # Always 0x00
+
+  # Eigth byte
+  # Always 0x00
 
 data:
   Ignition mode:

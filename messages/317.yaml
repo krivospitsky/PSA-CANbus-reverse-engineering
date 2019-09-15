@@ -1,5 +1,7 @@
+# Sent from the combine
 id: 0x317
 network: CONF
+source: COMBINE
 length: 8
 bits:
 

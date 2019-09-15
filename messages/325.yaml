@@ -1,6 +1,7 @@
 id: 0x325
 network: CONF
 length: 3
+# ETAT_RADIO_CD_CD
 comment: Internal CD infos
 bits:
   '8': CD present

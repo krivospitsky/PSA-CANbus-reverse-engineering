@@ -1,7 +1,8 @@
 id: 0x1A1
 network: CONF
+source: BSI
 length: 8
-comment: Informative message (for EMF)
+comment: 'BSI Informative/Alerts messages (displayed on the EMF)'
 bits:
   '47': Show enabled
   '48-55': Message code

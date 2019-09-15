@@ -1,7 +1,8 @@
 id: 0x0E6
 network: CONF
+source: UNKNOWN
 length: 6
-comment: 'Some BDI informations'
+comment: 'Some BSI informations'
 bits:
   '0-7': Voltage, (data+144)/20
   '8-23': |

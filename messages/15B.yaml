@@ -1,5 +1,7 @@
 id: 0x15B
 network: CONF
 length: 8
+# EMF_COE_MODIF_PROFILS
+comment: 'EMF Profiles modification codes'
 bits:
 

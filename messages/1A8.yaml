@@ -1,5 +1,8 @@
 id: 0x1A8
 network: CONF
+source: BSI
 length: 8
+# GESTION_VITESSE
+comment: 'Speed management'
 bits:
 

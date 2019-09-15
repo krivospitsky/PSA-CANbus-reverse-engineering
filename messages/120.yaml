@@ -1,5 +1,6 @@
 id: 0x120
 network: CONF
 length: 8
+# "Warning log"
 bits:
 

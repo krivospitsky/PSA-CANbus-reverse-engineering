@@ -1,7 +1,7 @@
 id: 0x1E0
 network: CONF
 length: 5
-comment: 'Radio config'
+comment: 'Radio configuration'
 bits:
   '5': Activate radio text
   '15': REG mode activated

@@ -1,8 +1,50 @@
 id: 0x0F6
 network: CONF
+source: BSI
 length: 8
-comment: 'Some BSI informations'
+comment: 'BSI Slow data'
 bits:
+  # ETAT_VEHICULE apparament
+  # ETAT_PRINCIP_SEV indique l'etat du moteur arrete, en demarrage, contact ou en fonction
+  # Son etat doit etre a 1
+  # Octet 0 bit 3: position_Cle
+  # Donnes dedans
+  # T_EXT_FILT
+  # TYPE_DIR
+  # ESSUYAGE
+  # ETAT_MA # Etat marche arriere
+  # T_EXT
+  # KM_TOTAL
+  # TEAU
+  # ETAT_GEN
+  # PARC_USINE
+  # ETAT_CLIGNOTANTS
+  # ETAT_FP # Etat feux ???
+  # MOE_CFG
+  # ETAT_PRINCIP_SEV (contact is a value)
+  # ETAT_GMP (moteur non tourantn is a value)
+  # Octet 1
+  #  bit 1.7-1.6: MODE_CFG: Mode de configuration (00 usine 01 libre 10 client 11 libre)
+  #  bit 1.5: PARC_USINE: configuration materielle parc: 0 pas en parc 1 en parc
+  #  bit 1.4-1.3: ETAT_PRINCIP_SEV: Etat Principal SEV (00 arret 01 contact 10 dem 11 libre)
+  #  bit 1.2: ETAT_GEN: Etat du generateur (0 generateur non operationel 1 generateur operationel)
+  #  bit 1.1-1.0: ETAT-GMP: Etat du groupe moto-propulseur: (00 moteur non tournant 01 demarrage en cours 10 moteur tournant 11 moteur arrete en phase de stop)
+  # Octet 2
+  #  bit 2.7-2.0: TEAU: Temperature d'eau (mesure + 40)
+  # Octet 3 a 5
+  #   3.7-5.0: KM_TOTAL: Totalisteur kilometrage vehicule (mesure*10)
+  # Octet 6:
+  #   6.7-6.0: T_EXT: Temperature exterieur (mesure + 40)*2
+  # Octet 7:
+  #   7.7-7.0: T_EXT_FILT: Temperature exterieure filtre (mesure + 40)*2
+  # Octet 8:
+  #   8.7: ETAT_MA: Etat de la marche arriere (0 marche arriee non enclenchee, 1 marche arriere enclenchee)
+  #   8.6: ESSUYAGE: Essuyage avant confirme (0 pas d'essuyage confirme 1 essuyage confirme)
+  #   8.5-8.4: TYPE_DIR: Type de direction du vehicule (00 invalide 01 direction a droite 02 direction a gauche 11 invalide ## volant a gauche ou a droite
+  #   8.3: TEST_VOY_CMD: Test voyants du combine (0 pas de test voyants 1 test voyants)
+  #   8.3: unused
+  #   8.1-8.0: ETAT_CLIGNOTANTS: Etat des clignotants (00 clignotants inactifs 01 clignotant droit actif 02 clignotant gauche actif 11 clignotants droit et gauche actif)
+
   '0': Turn signal left
   '1': Turn signal right
   '7': Reverse light

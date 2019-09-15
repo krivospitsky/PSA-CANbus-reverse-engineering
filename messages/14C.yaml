@@ -1,5 +1,11 @@
 id: 0x14C
 network: CONF
 length: 5
+comment: 'Door informations'
 bits:
-
+  # 5eme octet pour les portes
+  # bit 7: avant droit
+  # bit 6: avant gauche
+  # bit 5: arriere gauche
+  # bit 4: arriere droit
+  # bit 3: coffre

@@ -1,7 +1,7 @@
 id: 0x3F6
 network: CONF
 length: 7
-comment: Date and time
+comment: 'Date configuration'
 bits:
   '15': 'Time format (0=12h, 1=24h)'
   '36-55': Time in seconds

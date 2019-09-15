@@ -1,5 +1,6 @@
 id: 0x0A4
 network: CONF
+source: UNKNOWN
 length: 5
 bits:
-
+    # Always 05 10 00 00 00 00

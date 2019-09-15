@@ -1,5 +1,8 @@
+# Sent from the combine
 id: 0x217
 network: CONF
+source: COMBINE
 length: 8
+comment: 'Cluster status'
 bits:
 

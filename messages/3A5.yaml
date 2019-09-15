@@ -1,6 +1,7 @@
 id: 0x3A5
 network: CONF
 length: 6
+# ETAT_RADIO_CD_TRK
 comment: Current playing CD infos
 bits:
   '8-15': 'Current seconds (FF="--")'

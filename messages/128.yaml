@@ -1,8 +1,57 @@
 id: 0x128
 network: CONF
 length: 8
-comment: 'Dashboard lights'
+# CDE_COMBINE_SIGNALISATION
+comment: 'Cluster signalisation lights'
 bits:
+  # Apparently, this frame also contains at least one temperature, and the ESP indicator
+  # List of potential bytes
+  # Reserve_2
+  # OUCP # Oubli Ceinture Passager
+  # PRE_CHAUFF # Prechauffage diesel
+  # Reserve_1
+  # MINC # Signalisation de mini carburant
+
+  # FRPK # Signalisation Frein/Parking
+  # OUCC # Oubli Ceinture Conducteur
+  # ABPI # Signalisation Airbag Passager inhibe
+  # DEB_CENT_AR 
+  # Reserve_7
+  # Reserve_6
+  # Reserve_5
+
+  # Reserve_4
+  # Reserve_3
+  # STOP
+  # SERVICE
+  # Reserve_12
+  # CMD_WARNING # Feux de detresse
+  # Reserve_11
+  # ESPACT # ESP Active (?)
+
+  # ESPI   # ESP inhibe
+  # Reserve_10
+  # Reserve_9
+  # Reserve_8
+  # DEB_CEINT_AR_CLIG
+  # Reserve_13
+  # OUCP_CLIG # Oubli Ceinture Passager clignotant
+  # OUCC_CLIG # Oubli Ceinture Conducteur clignotant
+
+  # Reserve_15
+  # CLIGNO_G
+  # CLIGNO_D
+  # FEUX_ABAR
+  # FEUX_ABAV
+  # FEUX_ROUTE
+  # FEUX_CROIS
+
+  # Reserve_14
+  # Reserve_20
+  # Reserve_19
+  #
+  # Le signal ON_CMB defini l'etat actif ou non du combine, le signal doit lui aussi etre a 1
+
   # First byte
   '0-3': Dashboard backlight
   '4-7': Unused
@@ -33,11 +82,9 @@ bits:
   '31': Sidelights on
 
   # Fifth byte
-  '40': Sidelights on
 
   # Sixth byte
-  '52': Any door or trunk open
+  '52?': Any door or trunk open
 
   # Seventh byte
-  '62': Driver seat belt warning light
-
+  '62?': Driver seat belt warning light

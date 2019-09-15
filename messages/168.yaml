@@ -1,5 +1,7 @@
 id: 0x168
 network: CONF
 length: 8
+# CDE_COMBINE_TEMOINS
+comment: 'Cluster indicator lights'
 bits:
 
