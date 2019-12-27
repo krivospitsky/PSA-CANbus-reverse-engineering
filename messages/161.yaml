@@ -3,6 +3,7 @@ network: CONF
 length: 7
 # BSI_TEMP
 comment: 'BSI Temperatures and levels'
+# ETAT_BSI_TEMP_NIVEAU
 bits:
   # First byte
   # Always 0x64 => probably a percentage?

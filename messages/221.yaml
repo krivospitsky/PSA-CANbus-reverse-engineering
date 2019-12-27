@@ -2,6 +2,7 @@ id: 0x221
 network: CONF
 length: 7
 comment: Trip computer infos (instant data)
+# INFOS_GEN_ODB
 bits:
   '0-23': |
     'Rest of run to finish'

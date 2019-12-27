@@ -3,6 +3,7 @@ network: CONF
 source: BSI
 length: 8
 comment: 'BSI Informative/Alerts messages (displayed on the EMF)'
+# BSI_CD_PTR_MESSAGE
 bits:
   '47': Show enabled
   '48-55': Message code

@@ -3,10 +3,13 @@ network: CONF
 source: BSI
 length: 8
 comment: 'BSI Fast data'
+# DONNEES_BSI_RAPIDES
 bits:
   # First byte
   # Unknown, always 0xD0
 
+  # Apparently second and third bytes are also motors RPMs
+  # Bit from 2.7 to 3.0, factor 0.125 Offset 0 Mini 0 Maxi 8191.75
   # Second byte
   # Goes from 0x00 to 0xFF
 
