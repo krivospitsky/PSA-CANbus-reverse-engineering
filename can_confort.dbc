@@ -109,25 +109,50 @@ BO_ 1319 x_ecu_status: 8 Vector__XXX
 BO_ 1511 x_ecu_infos: 8 Vector__XXX
 
 BO_ 54 COMMANDES_BSI: 8 BSI
-   SG_ PHASE_VIE : 34|3@0+ (1,0) [0|0] "" Vector__XXX
-   SG_ INTERD_MEMO_DEF : 35|1@0+ (1,0) [0|0] "" Vector__XXX
-   SG_ DIAG_MUX_ON : 37|1@0+ (1,0) [0|0] "" Vector__XXX
-   SG_ DEM_EFFAC_DEF : 38|1@0+ (1,0) [0|0] "" Vector__XXX
-   SG_ LUMINOSITE : 27|4@0+ (1,0) [0|15] "" Vector__XXX
-   SG_ x_eclairage : 29|1@0+ (1,0) [0|0] "" Vector__XXX
-   SG_ x_mode_eco : 23|1@0+ (1,0) [0|0] "" Vector__XXX
+   SG_ PHASE_VIE : 32|3@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ INTERD_MEMO_DEF : 35|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ DIAG_MUX_ON : 37|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ DEM_EFFAC_DEF : 38|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ LUMINOSITE : 24|4@1+ (1,0) [0|15] "" Vector__XXX
+   SG_ x_eclairage : 29|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_mode_eco : 23|1@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 182 DONNEES_BSI_RAPIDES: 8 BSI
-   SG_ x_tachymetre : 7|16@0+ (1,0) [0|0] "tr/mn" Vector__XXX
-   SG_ x_vitesse : 23|16@0+ (1,0) [0|0] "km/h" Vector__XXX
+   SG_ x_tachymetre : 0|16@1+ (1,0) [0|0] "tr/mn" Vector__XXX
+   SG_ x_vitesse : 16|16@1+ (1,0) [0|0] "km/h" Vector__XXX
 
 BO_ 230 x_infos_roues: 6 BSI
+   SG_ x_tension : 40|8@1+ (1,0) [0|0] "volts" Vector__XXX
+   SG_ x_tachymetre_roue_droite : 24|16@1+ (1,0) [0|0] "RPM" Vector__XXX
+   SG_ x_tachymetre_roue_gauche : 8|16@1+ (1,0) [0|0] "RPM" Vector__XXX
 
 BO_ 246 DONNEES_BSI_LENTES: 8 BSI
+   SG_ ETAT_GEN : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ TEAU : 8|8@1+ (1,0) [-40|215] "degres_celcius" Vector__XXX
+   SG_ KM_TOTAL : 16|24@1+ (1,0) [0|1.67772e+06] "km" Vector__XXX
+   SG_ T_EXT : 40|8@1+ (1,0) [-40|87.5] "degres_celcius" Vector__XXX
+   SG_ T_EXT_FILT : 48|8@1+ (1,0) [-40|87.5] "degres_celcius" Vector__XXX
+   SG_ ETAT_MA : 63|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ ESSUYAGE : 62|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ MDE_CFG : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ PARC_USINE : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ ETAT_PRINCIPAL_SEV : 3|2@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ ETAT_GMP : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ TYPE_DIR : 60|2@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ TEST_VOY_CMB : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ Libre1 : 58|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ ETAT_CLIGNOTANTS : 56|2@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 288 x_journal_erreurs: 8 BSI
 
 BO_ 296 CDE_COMBINE_SIGNALISATION: 8 BSI
+   SG_ x_indicateur_parking : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_indicateur_diurne : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_feu_route : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_feu_brouillard_avant : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_feu_brouillard_arriere : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_clignotant_droite_permanent : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_clignotant_gauche_permanent : 1|1@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 301 x_commandes_clim: 8 BSI
 
@@ -192,9 +217,10 @@ CM_ BU_ RADIO_CD "Radio CD";
 CM_ BU_ EMF "Ecran Multifonctions (type C)";
 CM_ BU_ CLIM "Controlleur clim auto";
 CM_ BO_ 347 ""codes de modification profil EMF"";
-CM_ BO_ 359 "Commandes de l'EMF";
+CM_ BO_ 359 "Commandes de l'EMF (aussi appelle "DEMANDES_EMF")";
 CM_ BO_ 1014 "Configuration de la date";
 CM_ BO_ 464 "Commandes du panneau de controle de la clim";
+CM_ BO_ 357 "ETAT_RADIO_GEN_GEN";
 CM_ BO_ 677 "Informations sur le CD insere";
 CM_ BO_ 805 "Informations du lecteur CD";
 CM_ BO_ 869 "Information sur le CD actuel";
@@ -209,7 +235,7 @@ CM_ BO_ 599 "Possiblement du boitier toit escamotable";
 CM_ BO_ 1184 "Possiblement du boitier toit escamotable";
 CM_ BO_ 1319 "Possiblement du boitier toit escamotable";
 CM_ BO_ 1511 "Possiblement du boitier toit escamotable";
-CM_ BO_ 54 "Commandes BSI";
+CM_ BO_ 54 "Commandes BSI (periode: 100ms)";
 CM_ SG_ 54 PHASE_VIE "Gestion_de_l'alimentation";
 CM_ SG_ 54 INTERD_MEMO_DEF "Probablement_pour_desactiver_la_memorisation_des_defauts";
 CM_ SG_ 54 DIAG_MUX_ON "Probablement_pour_activer_le_diag_on_can";
@@ -217,13 +243,42 @@ CM_ SG_ 54 DEM_EFFAC_DEF "Probablement_pour_demander_un_effacement_des_defauts";
 CM_ SG_ 54 LUMINOSITE "Luminosite_du_EMF_et_COMBINE";
 CM_ SG_ 54 x_eclairage "probablement_activation_du_retroeclairage";
 CM_ SG_ 54 x_mode_eco "probablement_mode_eco";
-CM_ BO_ 182 "Donnes BSI frequemment mises a jour";
-CM_ SG_ 182 x_tachymetre "regime_moteur_x10";
-CM_ SG_ 182 x_vitesse "vitesse_x100";
+CM_ BO_ 182 "Donnes BSI frequemment mises a jour (periode: 50ms)";
+CM_ SG_ 182 x_tachymetre "regime_moteur,_mesure/10";
+CM_ SG_ 182 x_vitesse "vitesse,_mesure/100";
 CM_ BO_ 230 "Infos BSI sur les roues et la tension";
+CM_ SG_ 230 x_tension "(data+144)/20";
+CM_ SG_ 230 x_tachymetre_roue_droite "data/48";
+CM_ SG_ 230 x_tachymetre_roue_gauche "data/48";
+CM_ BO_ 246 "Donnees BSI lentes (periode: 500ms)";
+CM_ SG_ 246 ETAT_GEN "Etat_du_generateur";
+CM_ SG_ 246 TEAU "Temperature_d'eau,_mesure+40";
+CM_ SG_ 246 KM_TOTAL "Totaliseur_kilometrage_vehicule,_mesure*10";
+CM_ SG_ 246 T_EXT "Temperature_exterieure,_(mesure+40)*2";
+CM_ SG_ 246 T_EXT_FILT "Temperature_exterieure_filtree,_(mesure+40)*2";
+CM_ SG_ 246 ETAT_MA "Etat_de_la_marche_arriere";
+CM_ SG_ 246 ESSUYAGE "Essuyage_avant_confirme";
+CM_ SG_ 246 MDE_CFG "Mode_de_configuration";
+CM_ SG_ 246 PARC_USINE "Configuration_materielle_parc";
+CM_ SG_ 246 ETAT_PRINCIPAL_SEV "Etat_principal_SEV";
+CM_ SG_ 246 ETAT_GMP "Etat_du_groupe_moto_propulseur";
+CM_ SG_ 246 TYPE_DIR "Type_de_direction_du_vehicule";
+CM_ SG_ 246 TEST_VOY_CMB "Test_voyants_du_combine";
+CM_ SG_ 246 Libre1 "Toujours_a_0";
+CM_ SG_ 246 ETAT_CLIGNOTANTS "Etat_des_clignotants";
 CM_ BO_ 353 "(aussi appelle BSI_TEMP)";
 CM_ BO_ 24 "Possiblement du BSI, semble donner le status des airbags";
 VAL_ 464 Temperature_zone_passager 0 "LO" 0 "15c_-_18c" 0 "18.5c_-_23.5c" 0 "24_-_27" 22 "HI" 0 "";
 VAL_ 464 Temperature_zone_conducteur 0 "LO" 0 "15c_-_18c" 0 "18.5c_-_23.5c" 0 "24_-_27" 22 "HI" 0 "";
 VAL_ 464 direction 1 "haut_(durant_le_degivrage)" 2 "bas" 3 "millieu" 4 "haut" 5 "millieu_+_bas" 6 "haut_+_bas";
 VAL_ 54 PHASE_VIE 0 "VEILLE" 1 "NORMAL" 10 "MISE_EN_VEILLE" 11 "REVEIL" 100 "COM_OFF";
+VAL_ 246 ETAT_GEN 0 "Generateur_non_operationnel_(GNO)" 1 "Generateur_operationnel_(GO)";
+VAL_ 246 ETAT_MA 0 "Marche_arriere_non_enclenchee" 1 "Marche_arriere_enclenchee";
+VAL_ 246 ESSUYAGE 0 "Pas_d'essuyage_confirme" 1 "Essuyage_confirme";
+VAL_ 246 MDE_CFG 0 "Usine" 1 "Libre" 2 "Client" 3 "Libre";
+VAL_ 246 PARC_USINE 0 "Pas_en_parc" 1 "En_parc";
+VAL_ 246 ETAT_PRINCIPAL_SEV 0 "Arret" 1 "Contact" 2 "DEM/Demarrage" 3 "Libre";
+VAL_ 246 ETAT_GMP 0 "Moteur_non_tournant" 1 "Demarrage_en_cours" 2 "Moteur_tournant" 3 "Moteur_arrete_en_phase_de_stop";
+VAL_ 246 TYPE_DIR 0 "Invalide" 1 "Direction_a_droite" 2 "Direction_a_gauche" 3 "Invalide";
+VAL_ 246 TEST_VOY_CMB 0 "Pas_de_test_voyants" 1 "Test_voyants";
+VAL_ 246 ETAT_CLIGNOTANTS 0 "Clignotant_inactif" 1 "Clignotant_droit_actif" 2 "Clignotant_gauche_actif" 3 "Clignotant_gauche_et_clignotant_droit_actifs";
