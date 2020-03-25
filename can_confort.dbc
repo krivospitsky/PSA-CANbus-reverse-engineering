@@ -146,13 +146,17 @@ BO_ 246 DONNEES_BSI_LENTES: 8 BSI
 BO_ 288 x_journal_erreurs: 8 BSI
 
 BO_ 296 CDE_COMBINE_SIGNALISATION: 8 BSI
-   SG_ x_indicateur_parking : 7|1@1+ (1,0) [0|0] "" Vector__XXX
-   SG_ x_indicateur_diurne : 6|1@1+ (1,0) [0|0] "" Vector__XXX
-   SG_ x_feu_route : 5|1@1+ (1,0) [0|0] "" Vector__XXX
-   SG_ x_feu_brouillard_avant : 4|1@1+ (1,0) [0|0] "" Vector__XXX
-   SG_ x_feu_brouillard_arriere : 3|1@1+ (1,0) [0|0] "" Vector__XXX
-   SG_ x_clignotant_droite_permanent : 2|1@1+ (1,0) [0|0] "" Vector__XXX
-   SG_ x_clignotant_gauche_permanent : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_indicateur_diurne : 39|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_feu_route : 37|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_feu_brouillard_avant : 36|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_feu_brouillard_arriere : 35|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_clignotant_droite : 34|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_clignotant_gauche : 33|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_feu_croisement : 38|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_indicateur_warning : 17|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_indicateur_frein_a_main : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_esp_inhibe : 20|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_oubli_ceinture_conducteur : 6|1@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 301 x_commandes_clim: 8 BSI
 
@@ -204,10 +208,13 @@ BO_ 1517 x_ecu_infos: 8 CLIM
 
 BO_ 24 x_status_airbags: 5 Vector__XXX
 
+BO_ 214 x_bte_inconnu_1: 0 Vector__XXX
+
 BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
 BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
 BA_DEF_ BO_ "isj1939dbc" INT 0 0;
 BA_ "GenMsgForegroundColor" BO_ 535 "#000000";
+BA_ "GenMsgForegroundColor" BO_ 296 "#000000";
 BA_DEF_DEF_ "GenMsgBackgroundColor" "#ffffff";
 BA_DEF_DEF_ "GenMsgForegroundColor" "#000000";
 BA_DEF_DEF_ "isj1939dbc" 0;
@@ -227,7 +234,7 @@ CM_ BO_ 869 "Information sur le CD actuel";
 CM_ BO_ 933 "Informations sur la piste CD actuel";
 CM_ BO_ 997 "Commandes radio (bouttons de facade)";
 CM_ BO_ 267 "Semble lie a 0x12B, Possiblement du boitier toit escamotable";
-CM_ BO_ 299 "Semble lie a 0x10B, Possiblement du boitier toit escamotable";
+CM_ BO_ 299 "boitier toit escamotable";
 CM_ BO_ 308 "Possiblement du boitier toit escamotable";
 CM_ BO_ 332 "Probablement du BSI";
 CM_ BO_ 543 "Probablement commandes au volant // Probablement du BSI";
@@ -268,6 +275,7 @@ CM_ SG_ 246 Libre1 "Toujours_a_0";
 CM_ SG_ 246 ETAT_CLIGNOTANTS "Etat_des_clignotants";
 CM_ BO_ 353 "(aussi appelle BSI_TEMP)";
 CM_ BO_ 24 "Possiblement du BSI, semble donner le status des airbags";
+CM_ BO_ 214 "Boitier toit escamotable";
 VAL_ 464 Temperature_zone_passager 0 "LO" 0 "15c_-_18c" 0 "18.5c_-_23.5c" 0 "24_-_27" 22 "HI" 0 "";
 VAL_ 464 Temperature_zone_conducteur 0 "LO" 0 "15c_-_18c" 0 "18.5c_-_23.5c" 0 "24_-_27" 22 "HI" 0 "";
 VAL_ 464 direction 1 "haut_(durant_le_degivrage)" 2 "bas" 3 "millieu" 4 "haut" 5 "millieu_+_bas" 6 "haut_+_bas";
