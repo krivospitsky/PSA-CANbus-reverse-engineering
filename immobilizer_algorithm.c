@@ -1,15 +1,18 @@
-// immobilizer challenge-response theorical implementation
-// THIS IS NOT TESTED YET!
+// Immobilizer challenge-response implementation
 // This should match the authentication between the BSI and the engine ECU
-// Thanks to Wouter B for the original algorithm :)
+// The protocol is pretty simple:
+// * On frame 0x72 (ECU to BSI): 0x00 (4 bytes of challenge)
+// * On frame 0xA8 (BSI to ECU): 0x04 (4 bytes of response)
+// * If the challenge is accepted: {0x00, 0x00, 0x00, 0x00, 0x00} on frame 0x72
+// Thanks a lot to Wouter Bokslag for the original work and algorithm :)
 
 #include <inttypes.h>
 
 // Transformation function with PSA not-so-secret sauce
-int16_t transform(int16_t data_msb, int16_t data_lsb, int8_t sec[])
+int16_t transform(uint8_t data_msb, uint8_t data_lsb, uint8_t sec[])
 {
-	int16_t data = (data_msb << 16) | data_lsb;
-	int16_t result = ((data % sec[0]) * sec[2]) - ((data / sec[0]) * sec[1]);
+	int16_t data = (data_msb << 8) | data_lsb;
+	int32_t result = ((data % sec[0]) * sec[2]) - ((data / sec[0]) * sec[1]);
 	if (result < 0)
 		result += (sec[0] * sec[2]) + sec[1];
 	return result;

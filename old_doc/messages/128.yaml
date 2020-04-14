@@ -6,33 +6,35 @@ comment: 'Cluster signalisation lights'
 bits:
   # Apparently, this frame also contains at least one temperature, and the ESP indicator
   # List of potential bytes
+
+
   # Reserve_2
   # OUCP # Oubli Ceinture Passager
   # PRE_CHAUFF # Prechauffage diesel
   # Reserve_1
   # MINC # Signalisation de mini carburant
-
   # FRPK # Signalisation Frein/Parking
   # OUCC # Oubli Ceinture Conducteur
   # ABPI # Signalisation Airbag Passager inhibe
-  # DEB_CENT_AR 
+
+  # DEB_CENT_AR
   # Reserve_7
   # Reserve_6
   # Reserve_5
-
   # Reserve_4
   # Reserve_3
   # STOP
   # SERVICE
+
   # Reserve_12
   # CMD_WARNING # Feux de detresse
   # Reserve_11
   # ESPACT # ESP Active (?)
-
   # ESPI   # ESP inhibe
   # Reserve_10
   # Reserve_9
   # Reserve_8
+
   # DEB_CEINT_AR_CLIG
   # Reserve_13
   # OUCP_CLIG # Oubli Ceinture Passager clignotant

@@ -32,7 +32,7 @@ NS_ :
     SG_MUL_VAL_
 
 BS_: 
-BU_: BSI CMB RADIO_CD EMF CLIM 
+BU_: BSI CMB RADIO_CD EMF CLIM BTE 
 BO_ 535 ETAT_COMBINE: 8 CMB
 
 BO_ 791 inconnu_cmb_1: 8 CMB
@@ -52,13 +52,6 @@ BO_ 1509 x_ecu_infos: 8 EMF
 BO_ 272 inconnu_clim_1: 8 CLIM
 
 BO_ 400 inconnu_clim_2: 8 CLIM
-
-BO_ 464 x_commandes_clim: 7 CLIM
-   SG_ Temperature_zone_passager : 60|5@0+ (1,0) [0|22] "" Vector__XXX
-   SG_ Temperature_zone_conducteur : 52|5@0+ (1,0) [0|22] "" Vector__XXX
-   SG_ Degivrage_avant : 44|1@0+ (1,0) [0|0] "" Vector__XXX
-   SG_ Recyclage_air : 45|1@0+ (1,0) [0|0] "" Vector__XXX
-   SG_ direction : 38|3@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1325 x_ecu_status: 8 CLIM
 
@@ -223,10 +216,10 @@ CM_ BU_ CMB "Combine d'instruments/Cluster";
 CM_ BU_ RADIO_CD "Radio CD";
 CM_ BU_ EMF "Ecran Multifonctions (type C)";
 CM_ BU_ CLIM "Controlleur clim auto";
+CM_ BU_ BTE "Boitier Toit escamotable";
 CM_ BO_ 347 ""codes de modification profil EMF"";
 CM_ BO_ 359 "Commandes de l'EMF (aussi appelle "DEMANDES_EMF")";
 CM_ BO_ 1014 "Configuration de la date";
-CM_ BO_ 464 "Commandes du panneau de controle de la clim";
 CM_ BO_ 357 "ETAT_RADIO_GEN_GEN";
 CM_ BO_ 677 "Informations sur le CD insere";
 CM_ BO_ 805 "Informations du lecteur CD";
@@ -276,9 +269,6 @@ CM_ SG_ 246 ETAT_CLIGNOTANTS "Etat_des_clignotants";
 CM_ BO_ 353 "(aussi appelle BSI_TEMP)";
 CM_ BO_ 24 "Possiblement du BSI, semble donner le status des airbags";
 CM_ BO_ 214 "Boitier toit escamotable";
-VAL_ 464 Temperature_zone_passager 0 "LO" 0 "15c_-_18c" 0 "18.5c_-_23.5c" 0 "24_-_27" 22 "HI" 0 "";
-VAL_ 464 Temperature_zone_conducteur 0 "LO" 0 "15c_-_18c" 0 "18.5c_-_23.5c" 0 "24_-_27" 22 "HI" 0 "";
-VAL_ 464 direction 1 "haut_(durant_le_degivrage)" 2 "bas" 3 "millieu" 4 "haut" 5 "millieu_+_bas" 6 "haut_+_bas";
 VAL_ 54 PHASE_VIE 0 "VEILLE" 1 "NORMAL" 10 "MISE_EN_VEILLE" 11 "REVEIL" 100 "COM_OFF";
 VAL_ 246 ETAT_GEN 0 "Generateur_non_operationnel_(GNO)" 1 "Generateur_operationnel_(GO)";
 VAL_ 246 ETAT_MA 0 "Marche_arriere_non_enclenchee" 1 "Marche_arriere_enclenchee";
