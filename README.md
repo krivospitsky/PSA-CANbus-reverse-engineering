@@ -62,3 +62,11 @@ There's plenty of controllers that aren't in this list yet, i'll update it when 
 ## What to do with this
 
 You can help by providing dumps of your car if you can; The DBC files can be openned with vector's software (expensive) or SavvyCAN (open source); The rest is up to you, it's only a documentation repository.
+
+## Thanks and references
+
+* Wouter Bokslag for his awesome work on the [reverse engineering of the immobilizer](https://fahrplan.events.ccc.de/congress/2019/Fahrplan/events/11020.html)
+* Alexandre Blin for his [tools](https://github.com/alexandreblin?tab=repositories), work on his 207 and for being a huge inspiration for this
+* Peter Pinter for his huge work on his own [FullCAN to VAN bridge](https://github.com/morcibacsi?tab=repositories)
+* Karaelyn and Kailokyra for their advices, especially on embedded dev
+* All the people who leaked parts of PSA's designs all over the internet :)
