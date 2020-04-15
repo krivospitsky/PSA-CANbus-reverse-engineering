@@ -150,6 +150,8 @@ BO_ 296 CDE_COMBINE_SIGNALISATION: 8 BSI
    SG_ x_indicateur_frein_a_main : 5|1@1+ (1,0) [0|0] "" Vector__XXX
    SG_ x_esp_inhibe : 20|1@1+ (1,0) [0|0] "" Vector__XXX
    SG_ x_oubli_ceinture_conducteur : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_bva_vitesse : 52|4@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_etat : 47|1@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 301 x_commandes_clim: 8 BSI
 
@@ -206,13 +208,17 @@ BO_ 214 x_bte_inconnu_1: 0 Vector__XXX
 BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
 BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
 BA_DEF_ BO_ "isj1939dbc" INT 0 0;
+BA_DEF_ BO_ "matchingcriteria" INT 0 0;
+BA_DEF_ BO_ "filterlabeling" INT 0 0;
 BA_ "GenMsgForegroundColor" BO_ 535 "#000000";
 BA_ "GenMsgForegroundColor" BO_ 296 "#000000";
 BA_DEF_DEF_ "GenMsgBackgroundColor" "#ffffff";
 BA_DEF_DEF_ "GenMsgForegroundColor" "#000000";
 BA_DEF_DEF_ "isj1939dbc" 0;
+BA_DEF_DEF_ "matchingcriteria" 0;
+BA_DEF_DEF_ "filterlabeling" false;
 CM_ BU_ BSI "Boitier de Servitude Intelligent";
-CM_ BU_ CMB "Combine d'instruments/Cluster";
+CM_ BU_ CMB "Combine";
 CM_ BU_ RADIO_CD "Radio CD";
 CM_ BU_ EMF "Ecran Multifonctions (type C)";
 CM_ BU_ CLIM "Controlleur clim auto";
@@ -266,6 +272,7 @@ CM_ SG_ 246 TYPE_DIR "Type_de_direction_du_vehicule";
 CM_ SG_ 246 TEST_VOY_CMB "Test_voyants_du_combine";
 CM_ SG_ 246 Libre1 "Toujours_a_0";
 CM_ SG_ 246 ETAT_CLIGNOTANTS "Etat_des_clignotants";
+CM_ SG_ 296 x_bva_vitesse "Vitesse_engagee_BVA_ou_BVMP";
 CM_ BO_ 353 "(aussi appelle BSI_TEMP)";
 CM_ BO_ 24 "Possiblement du BSI, semble donner le status des airbags";
 CM_ BO_ 214 "Boitier toit escamotable";
@@ -280,3 +287,5 @@ VAL_ 246 ETAT_GMP 0 "Moteur_non_tournant" 1 "Demarrage_en_cours" 2 "Moteur_tourn
 VAL_ 246 TYPE_DIR 0 "Invalide" 1 "Direction_a_droite" 2 "Direction_a_gauche" 3 "Invalide";
 VAL_ 246 TEST_VOY_CMB 0 "Pas_de_test_voyants" 1 "Test_voyants";
 VAL_ 246 ETAT_CLIGNOTANTS 0 "Clignotant_inactif" 1 "Clignotant_droit_actif" 2 "Clignotant_gauche_actif" 3 "Clignotant_gauche_et_clignotant_droit_actifs";
+VAL_ 296 x_bva_vitesse 0 "Point_mort" 16 "Marche_arriere" 64 "6eme" 80 "5eme" 96 "4eme" 112 "3eme" 128 "2eme" 144 "1ere";
+VAL_ 296 x_etat 0 "OFF" 1 "ON";

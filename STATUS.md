@@ -1,0 +1,135 @@
+# Status for each frame ID
+(OK = 100% done // WIP = partial infos // TODO = zero info)
+
+| ID    | Bus           | Status |
+|-------|---------------|--------|
+| 0x007 | CAR           | TODO   |
+| 0x018 | CAR, CONF     | TODO   |
+| 0x036 | CAR, CONF     | WIP    |
+| 0x046 | CAR           | TODO   |
+| 0x058 | CAR           | TODO   |
+| 0x05A | CAR           | TODO   |
+| 0x072 | IS            | OK     |
+| 0x094 | CAR           | WIP    |
+| 0x099 | CAR           | TODO   |
+| 0x0A4 | CONF          | TODO   |
+| 0x0A8 | IS            | OK     |
+| 0x0B6 | CAR, CONF     | WIP    |
+| 0x0C2 | CAR           | TODO   |
+| 0x0C6 | CAR           | TODO   |
+| 0x0D6 | CONF          | WIP    |
+| 0x0DF | CONF          | TODO   |
+| 0x0E6 | CONF          | WIP    |
+| 0x0F6 | CAR, CONF     | OK     |
+| 0x105 | IS            | TODO   |
+| 0x108 | IS            | TODO   |
+| 0x10A | CAR           | TODO   |
+| 0x10B | CONF          | TODO   |
+| 0x110 | CONF          | TODO   |
+| 0x112 | IS            | TODO   |
+| 0x114 | CAR           | TODO   |
+| 0x117 | IS            | TODO   |
+| 0x119 | CAR           | TODO   |
+| 0x120 | CONF          | WIP    |
+| 0x125 | CONF          | TODO   |
+| 0x128 | CONF          | WIP    |
+| 0x12B | CONF          | TODO   |
+| 0x12D | CONF          | WIP    |
+| 0x131 | CONF          | WIP    |
+| 0x134 | CONF          | TODO   |
+| 0x142 | CAR           | TODO   |
+| 0x14C | CONF          | TODO   |
+| 0x154 | CAR           | TODO   |
+| 0x15B | CONF          | WIP    |
+| 0x161 | CONF          | WIP    |
+| 0x165 | CONF          | WIP    |
+| 0x167 | CONF          | WIP    |
+| 0x168 | CONF          | WIP    |
+| 0x182 | CAR           | TODO   |
+| 0x190 | CONF          | TODO   |
+| 0x199 | CAR           | TODO   |
+| 0x1A1 | CONF          | WIP    |
+| 0x1A5 | CONF          | WIP    |
+| 0x1A8 | CONF          | WIP    |
+| 0x1C4 | CAR           | TODO   |
+| 0x1D0 | CONF          | TODO   |
+| 0x1D9 | CAR           | TODO   |
+| 0x1E0 | CONF          | WIP    |
+| 0x1E5 | CONF          | WIP    |
+| 0x208 | IS            | OK     |
+| 0x217 | CONF          | WIP    |
+| 0x219 | CAR           | TODO   |
+| 0x21F | CAR, CONF     | WIP    |
+| 0x220 | CONF          | WIP    |
+| 0x221 | CONF          | WIP    |
+| 0x225 | CONF          | WIP    |
+| 0x227 | CONF          | TODO   |
+| 0x257 | CONF          | TODO   |
+| 0x260 | CONF          | TODO   |
+| 0x261 | CONF          | WIP    |
+| 0x265 | CONF          | WIP    |
+| 0x29A | CAR           | TODO   |
+| 0x2A0 | CONF          | TODO   |
+| 0x2A1 | CONF          | WIP    |
+| 0x2A5 | CONF          | WIP    |
+| 0x2B6 | CONF          | WIP    |
+| 0x2E1 | CONF          | WIP    |
+| 0x305 | IS            | WIP    |
+| 0x30D | IS            | TODO   |
+| 0x317 | CONF          | TODO   |
+| 0x325 | CONF          | WIP    |
+| 0x336 | CONF          | WIP    |
+| 0x348 | IS            | WIP    |
+| 0x34D | IS            | TODO   |
+| 0x359 | CAR           | TODO   |
+| 0x361 | CONF          | TODO   |
+| 0x365 | CONF          | WIP    |
+| 0x38D | IS            | WIP    |
+| 0x3A5 | CONF          | WIP    |
+| 0x3A7 | CONF          | WIP    |
+| 0x3B6 | CONF          | WIP    |
+| 0x3CD | IS            | TODO   |
+| 0x3E5 | CONF          | WIP    |
+| 0x3F6 | CONF          | WIP    |
+| 0x40D | IS            | TODO   |
+| 0x412 | CAR, CONF, IS | TODO   |
+| 0x432 | IS            | TODO   |
+| 0x44D | IS            | OK     |
+| 0x468 | IS            | TODO   |
+| 0x488 | IS            | OK     |
+| 0x495 | IS            | TODO   |
+| 0x4A0 | CONF          | TODO   \
+| 0x502 | CAR           | WIP    |
+| 0x504 | CAR           | WIP    |
+| 0x507 | CAR           | WIP    |
+| 0x50A | CAR           | WIP    |
+| 0x50D | IS            | WIP    |
+| 0x50E | IS            | WIP    |
+| 0x512 | CAR, CONF     | WIP    |
+| 0x517 | IS            | WIP    |
+| 0x51F | CONF          | WIP    |
+| 0x520 | CONF          | WIP    |
+| 0x525 | CONF          | WIP    |
+| 0x527 | CONF          | WIP    |
+| 0x52D | CONF          | WIP    |
+| 0x552 | IS            | WIP    |
+| 0x588 | IS            | WIP    |
+| 0x592 | IS            | WIP    |
+| 0x5C2 | CAR           | WIP    |
+| 0x5C4 | CAR           | WIP    |
+| 0x5C7 | CAR           | WIP    |
+| 0x5D2 | CAR, CONF     | WIP    |
+| 0x5DF | CONF          | WIP    |
+| 0x5E0 | CONF          | WIP    |
+| 0x5E5 | CONF          | WIP    |
+| 0x5E7 | CONF          | WIP    |
+| 0x5ED | CONF          | WIP    |
+| 0x608 | IS            | TODO   |
+| 0x612 | IS            | TODO   |
+| 0x788 | IS            | TODO   |
+| 0x78D | IS            | TODO   |
+| 0x792 | IS            | TODO   |
+| 0x795 | IS            | TODO   |
+| 0x797 | IS            | TODO   |
+| 0x7E2 | IS            | TODO   |
+| 0x7F2 | IS            | TODO   |

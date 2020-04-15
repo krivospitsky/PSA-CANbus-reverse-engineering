@@ -1,0 +1,208 @@
+VERSION ""
+
+
+NS_ :
+    NS_DESC_
+    CM_
+    BA_DEF_
+    BA_
+    VAL_
+    CAT_DEF_
+    CAT_
+    FILTER
+    BA_DEF_DEF_
+    EV_DATA_
+    ENVVAR_DATA_
+    SGTYPE_
+    SGTYPE_VAL_
+    BA_DEF_SGTYPE_
+    BA_SGTYPE_
+    SIG_TYPE_REF_
+    VAL_TABLE_
+    SIG_GROUP_
+    SIG_VALTYPE_
+    SIGTYPE_VALTYPE_
+    BO_TX_BU_
+    BA_DEF_REL_
+    BA_REL_
+    BA_DEF_DEF_REL_
+    BU_SG_REL_
+    BU_EV_REL_
+    BU_BO_REL_
+    SG_MUL_VAL_
+
+BS_: 
+BU_: BSI CMM DAE ABS CAV 
+BO_ 168 x_antidemarrage_reponse: 5 BSI
+   SG_ x_reponse_header : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_reponse_data : 8|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 114 x_antidemarrage_challenge: 5 CMM
+   SG_ x_challenge_header : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_challenge_data : 8|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 520 inconnu_cmm_1: 8 CMM
+   SG_ x_regime_moteur : 0|16@1+ (1,0) [0|8191] "tr/min" Vector__XXX
+   SG_ x_couple_reel : 16|8@1+ (1,0) [-100|408] "Nm" Vector__XXX
+   SG_ x_vonlonte_conducteur : 24|8@1+ (1,0) [0|200] "" Vector__XXX
+   SG_ x_regen_filtre : 39|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_diag_reseau : 38|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_figeage_perturbation_couple : 37|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_infos_couples_incertaines : 36|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_etat_regul_vitesse : 34|2@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_contact_sec_frein : 33|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_consigne_enclenchement_compresseur : 32|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_couple_reel_hors_bv : 40|8@1+ (1,0) [-100|408] "Nm" Vector__XXX
+   SG_ x_couple_anticipe : 48|8@1+ (1,0) [-100|408] "Nm" Vector__XXX
+   SG_ reserve_1 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 909 inconnu_abs_1: 7 ABS
+   SG_ x_vitesse_abs : 0|16@1+ (1,0) [0|0] "Km/h" Vector__XXX
+   SG_ x_distance_parcourue : 0|1@1+ (1,0) [0|6553.5] "m" Vector__XXX
+   SG_ x_acceleration_long : 0|1@1+ (1,0) [-14|6.32] "m/s^2" Vector__XXX
+
+BO_ 1101 x_vitesse_roues: 8 ABS
+   SG_ x_vitesse_avant : 0|16@1+ (1,0) [0|655.34] "km/h" Vector__XXX
+   SG_ x_vitesse_arriere_gauche : 16|16@1+ (1,0) [0|655.34] "km/h" Vector__XXX
+   SG_ x_vitesse_arriere_droite : 32|16@1+ (1,0) [0|655.34] "km/h" Vector__XXX
+   SG_ reserve_1 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 840 inconnu_cmm_2: 8 CMM
+   SG_ x_eau_gasoil : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_rapport_bvm : 4|4@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_couple_demande : 8|8@1+ (1,0) [-100|408] "Nm" Vector__XXX
+   SG_ x_couple_anticipe : 16|8@1+ (1,0) [-100|408] "Nm" Vector__XXX
+   SG_ x_couple_pertes : 24|8@1+ (1,0) [-100|408] "" Vector__XXX
+   SG_ x_contact_embrayage : 35|2@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_asr_msr : 33|2@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_aquitt_asr : 32|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 773 x_angle_volant: 6 CAV
+   SG_ x_angle_volant : 0|16@1+ (1,0) [0|0] "degres" Vector__XXX
+   SG_ x_vitesse_rot : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_sens_rotation : 31|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_code_defaut_capteur : 27|4@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_ajustage_capteur : 26|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_capteur_calibre : 25|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_status_interne : 24|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_checksum : 36|4@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_compteur_processus : 32|4@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1160 inconnu_cmm_3: 8 CMM
+   SG_ x_temperature_eau : 0|8@1+ (1,0) [-40|210] "degres_celsius" Vector__XXX
+   SG_ x_conso_carburant : 8|8@1+ (1,0) [0|20400] "mm^3" Vector__XXX
+   SG_ x_consigne_regul_ralenti : 16|8@1+ (1,0) [0|2032] "tr/mn" Vector__XXX
+   SG_ x_rates_combustion : 31|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_regul_vitesse_defaut : 30|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_consigne_pompe_air : 29|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_affich_mini_additif : 28|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_alerte_temp_eau : 27|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_allumage_mil : 26|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_allumage_prechauff : 25|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_demarrage : 24|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_forcage_pression_bva : 39|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_colmatage_fap : 38|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_preparation_prechauff : 37|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_coupure_surregime : 35|2@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_etat_clim : 33|2@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_clim_temperature : 32|1@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ x_temperature_huile : 40|8@1+ (1,0) [-40|210] "degres_celsius" Vector__XXX
+   SG_ x_pression_refrigeration : 48|8@1+ (1,0) [0|3100] "kPa" Vector__XXX
+   SG_ x_temperature_air : 56|8@1+ (1,0) [-40|210] "degres_celsius" Vector__XXX
+
+BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
+BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
+BA_DEF_ BO_ "matchingcriteria" INT 0 0;
+BA_DEF_ BO_ "filterlabeling" INT 0 0;
+BA_DEF_DEF_ "GenMsgBackgroundColor" "#ffffff";
+BA_DEF_DEF_ "GenMsgForegroundColor" "#000000";
+BA_DEF_DEF_ "matchingcriteria" 0;
+BA_DEF_DEF_ "filterlabeling" 1;
+CM_ BU_ BSI "Boitier de Servitude Intelligent";
+CM_ BU_ CMM "Calculateur Moteur Multifonction";
+CM_ BU_ DAE "Direction Assistee Electrique";
+CM_ BU_ ABS "ABS, ESP et AFU";
+CM_ BU_ CAV "Capteur Angle Volant";
+CM_ BO_ 168 "Reponse a l'antidemarrage";
+CM_ SG_ 168 x_reponse_data "reponse_au_challenge";
+CM_ SG_ 520 x_regime_moteur "Regime_moteur_+-_3_tr/min,_value/8";
+CM_ SG_ 520 x_couple_reel "(value+100)/2";
+CM_ SG_ 520 x_vonlonte_conducteur "2*value";
+CM_ SG_ 520 x_regen_filtre "Requete_de_regeneration_du_filtre_a_particules";
+CM_ SG_ 520 x_diag_reseau "Autorisation_de_fonctionnement_du_diagnostique_reseau";
+CM_ SG_ 520 x_figeage_perturbation_couple "Demande_de_figeage_des_perturbations_de_couple";
+CM_ SG_ 520 x_infos_couples_incertaines "Info_couples_estimes_incertaines";
+CM_ SG_ 520 x_etat_regul_vitesse "Etat_regulation_de_vitesse";
+CM_ SG_ 520 x_contact_sec_frein "Contact_secondaire_pedale_de_frein";
+CM_ SG_ 520 x_consigne_enclenchement_compresseur "Consigne_d'enclenchement_du_compresseur";
+CM_ SG_ 520 x_couple_reel_hors_bv "Couple_reel_hors_reduction_BV,_data=(couple+100)/2";
+CM_ SG_ 520 x_couple_anticipe "Couple_anticipe_ou_couple_demande_par_le_conducteur_apres_traitement,_data=(couple+100)/2";
+CM_ SG_ 909 x_vitesse_abs "Vitesse_vehicule_ABS,_data=vitesse/100";
+CM_ SG_ 909 x_distance_parcourue "data=distance/10";
+CM_ SG_ 909 x_acceleration_long "Acceleration_longitudinale,_data=(acceleration-14)/12.5";
+CM_ SG_ 1101 x_vitesse_avant "Moyenne_des_roues_avant,data=vitesse/100";
+CM_ SG_ 1101 x_vitesse_arriere_gauche "data=vitesse/100";
+CM_ SG_ 840 x_eau_gasoil "Eau_dans_le_gasoil";
+CM_ SG_ 840 x_couple_demande "Couple_demande_par_le_conducteur_avant_traitement";
+CM_ SG_ 840 x_couple_anticipe "Couple_anticipe_ou_Couple_demande_par_le_conducteur_apres_traitement";
+CM_ SG_ 840 x_couple_pertes "Couple_pertes_totales_moteur";
+CM_ SG_ 840 x_contact_embrayage "Contact_pedale_d'embrayage";
+CM_ SG_ 840 x_asr_msr "Etat_realisation_de_la_fonction_ASR/MSR";
+CM_ SG_ 840 x_aquitt_asr "Acquittement_ASR";
+CM_ SG_ 773 x_angle_volant "Angle_Volant,_data=angle/10";
+CM_ SG_ 773 x_vitesse_rot "Vitesse_rotation_volant";
+CM_ SG_ 773 x_sens_rotation "Sens_de_rotation_volant";
+CM_ SG_ 773 x_code_defaut_capteur "Code_defaut_capteur_angle_volant";
+CM_ SG_ 773 x_ajustage_capteur "Ajustage_du_capteur_angle_volant";
+CM_ SG_ 773 x_capteur_calibre "Capteur_angle_volant_calibre";
+CM_ SG_ 773 x_status_interne "Status_interne_capteur_angle_volant";
+CM_ SG_ 773 x_checksum "Checksum_angle_volant";
+CM_ SG_ 773 x_compteur_processus "Compteur_de_processus_4bits";
+CM_ SG_ 1160 x_temperature_eau "Temperature_d'eau_moteur,_data=temp-40";
+CM_ SG_ 1160 x_conso_carburant "Consommation_carburant,_data=conso*80";
+CM_ SG_ 1160 x_consigne_regul_ralenti "Consigne_Regulation_de_Ralenti,_data=consigne*8";
+CM_ SG_ 1160 x_rates_combustion "Forts_rates_de_combustion";
+CM_ SG_ 1160 x_regul_vitesse_defaut "Regulation_de_vitesse_en_defaut";
+CM_ SG_ 1160 x_consigne_pompe_air "Consigne_pompe_a_air";
+CM_ SG_ 1160 x_affich_mini_additif "Commande_d'affichage_mini_additif";
+CM_ SG_ 1160 x_alerte_temp_eau "Alerte_temperature_d'eau_moteur";
+CM_ SG_ 1160 x_allumage_mil "Demande_allumage_lampe_MIL";
+CM_ SG_ 1160 x_allumage_prechauff "Demande_allumage_lampe_de_prechauffage";
+CM_ SG_ 1160 x_forcage_pression_bva "Forcage_de_la_pression_du_circuit_hydraulique_BVA";
+CM_ SG_ 1160 x_colmatage_fap "Commande_d'affichage_du_risque_de_colmatage_FAP";
+CM_ SG_ 1160 x_preparation_prechauff "Preparation_de_l'activation_des_bougies_de_prechauffage";
+CM_ SG_ 1160 x_coupure_surregime "Seuil_de_coupure_en_surregime";
+CM_ SG_ 1160 x_etat_clim "Etat_gestion_climatisation";
+CM_ SG_ 1160 x_clim_temperature "Etat_coupure_climatisation_pour_securite_temperature_d'eau";
+CM_ SG_ 1160 x_temperature_huile "Temperature_d'huile_moteur,_data=temp-40";
+CM_ SG_ 1160 x_pression_refrigeration "Pression_du_circuit_de_refrigeration,_data=pression*25";
+CM_ SG_ 1160 x_temperature_air "Temperature_d'air_a_l'admission,_data=temp-40";
+VAL_ 168 x_reponse_header 4 "reponse_au_challenge";
+VAL_ 114 x_challenge_header 0 "Challenge" 2 "Reponse_acceptee/Antidemarrage_deverouille";
+VAL_ 520 x_regen_filtre 0 "Pas_de_requete" 1 "Requete";
+VAL_ 520 x_diag_reseau 0 "Diagnostique_reseau_desactive" 1 "Diagnostique_reseau_active";
+VAL_ 520 x_figeage_perturbation_couple 0 "Pas_de_demande_de_figeage" 1 "Demande_de_figeage";
+VAL_ 520 x_infos_couples_incertaines 0 "Infos_non_garanties" 1 "Infos_garanties";
+VAL_ 520 x_etat_regul_vitesse 0 "OFF" 1 "Reprise_pedale" 16 "ON";
+VAL_ 520 x_contact_sec_frein 0 "Frein_relache" 1 "Frein_appuye";
+VAL_ 520 x_consigne_enclenchement_compresseur 0 "Enclenchement_interdit" 1 "Demande_d'enclenchement";
+VAL_ 840 x_eau_gasoil 0 "Pas_d'eau" 1 "Presence_d'eau";
+VAL_ 840 x_rapport_bvm 0 "Debraye_ou_point_mort" 1 "1ere" 2 "2eme" 3 "3eme" 4 "4eme" 5 "5eme" 6 "6eme" 7 "7eme" 8 "8eme" 9 "Marche_arriere";
+VAL_ 840 x_contact_embrayage 0 "Embrayage_relache" 1 "Embrayage_enfonce" 17 "Contact_HS";
+VAL_ 840 x_asr_msr 0 "Fonctionnement_normal" 1 "Moteur_gere_en_boucle_ouverte" 16 "Fonctionnement_degrade" 17 "Aucune_action_possible";
+VAL_ 840 x_aquitt_asr 0 "Probleme_de_dialogue" 1 "Dialogue_correct";
+VAL_ 773 x_angle_volant 0 "Vers_la_gauche" 0 "Vers_la_droite";
+VAL_ 773 x_sens_rotation 0 "A_gauche" 1 "A_droite";
+VAL_ 1160 x_rates_combustion 0 "Pas_de_fort_rates" 1 "Fort_rates";
+VAL_ 1160 x_regul_vitesse_defaut 0 "RVV_OK" 1 "Defaut_RVV";
+VAL_ 1160 x_consigne_pompe_air 0 "Pompe_a_air_inactive" 1 "Active";
+VAL_ 1160 x_affich_mini_additif 0 "Pas_d'affichage" 1 "Affichage";
+VAL_ 1160 x_allumage_mil 0 "Pas_d'allumage_demande" 1 "Allumage_demande";
+VAL_ 1160 x_allumage_prechauff 0 "Pas_de_demande" 1 "Demande";
+VAL_ 1160 x_demarrage 0 "Pas_de_demarrage_moteur" 1 "Demarrage_moteur";
+VAL_ 1160 x_forcage_pression_bva 0 "Pas_de_demande_d'augmentation_de_la_pression" 1 "Demande_d'augmentation_de_la_pression";
+VAL_ 1160 x_colmatage_fap 0 "Pas_d'affichage" 1 "Affichage";
+VAL_ 1160 x_preparation_prechauff 0 "Pas_de_preparation" 1 "Preparation";
+VAL_ 1160 x_coupure_surregime 0 "Seuil_bas" 1 "Seuil_haut";
+VAL_ 1160 x_etat_clim 0 "OK" 1 "Pression_trop_basse" 2 "Pression_trop_haute";
+VAL_ 1160 x_clim_temperature 0 "Securite_inactive_(compresseur_fonctionne)" 1 "Securite_active_(compresseur_eteint)";
