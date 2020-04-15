@@ -4,6 +4,10 @@
 
 Just some repository to document the WIP of the reverse engineering of PSA's (Peugeot, Citroen and DS cars) CANbus architecture
 
+## Status
+
+See STATUS.md and ECUS.md
+
 ## Basics
 
 ### History
@@ -23,41 +27,6 @@ The controllers also comply with OSEK and AUTOSAR standards.
 The diagnostic (OBD-II) port is a bit different, as it uses a 500kbps "DiagOnCan" bus as well as the IS bus, which is switched to the OBD-II port on demand.
 AEE2004 apparently uses UDS (over CAN-TP) as well as standard EOBD standards, they may (and probably do) use proprietary extensions of UDS.
 Their official diagnostic kit is made by actia, there was 2 generations: a combinaison of "Lexia" (citroen) and "PP2000" (peugeot), using (at least for peugeot) the "PPI" interface (PP for both PPI and PP2000 stands for "Peugeot Planet"... the internet was new back then). Nowadays, there's "Diagbox" (diag software) and "XS Evolution" (the dongle). Technicians can also use "ServiceBox" (manuals and parts refernces) as well as "SEDRE" (schematics), but they don't communicate with the car.
-
-
-## ECUs status (NOPE == No access to car that have this option)
-
-| ECU                     | Network(s)    | Status | Notes                                |
-|-------------------------|---------------|--------|--------------------------------------|
-| BSI                     | IS, CAR, CONF | WIP    | Central controller                   |
-| MED17.4                 | IS            | TODO   | Gasoline motor controller (VTI, THP) |
-| DAE/GMP                 | IS            | TODO   | Power steering                       |
-| BMVP/AM6/AL4/BVA        | IS            | TODO   | Gearbox controller                   |
-| CAV                     | IS            | TODO   | Steering wheel sensor                |
-| ABS/EHB/ESP             | IS            | TODO   | ABS and ESP controller               |
-| DSG                     | IS            | TODO   | Tyre presure sensor                  |
-| BCP                     | IS            | TODO   | Adaptative front lights              |         
-| CMB                     | CONF          | WIP    | Instrument cluster                   |
-| EMF (A+, C-)            | CONF          | WIP    | "Basic" screen (without navigation)  |
-| RD4(5)                  | CONF          | WIP    | Head unit without navigation         |
-| CD Charger              | CONF          | NOPE   | Multi-CD extension                   |
-| CLIM                    | CONF          | WIP    | Bi-Zone auto climate control         |
-| AAS                     | CONF          | TODO   | Parking radar                        |
-| BTE                     | CONF          | WIP    | Roof controller, CC cars only        |
-| EDP                     | CONF          | TODO   | Power windows                        |
-| SAM                     | CONF          | NOPE   | Dead angle                           |
-| RT3/RT4/RT5/RT6         | CONF          | TODO   | Head unit with navigation and phone  |
-| SCU/TO                  | CONF          | NOPE   | Sunroof controller                   |
-| MAE                     | CAR           | NOPE   | School controller                    |
-| RBG                     | CAR           | TODO   | Airbag controller                    |
-| CDPL                    | CAR           | TODO   | Rain and Sunlight sensor             |
-| BSM                     | CAR           | TODO   | Power distribution                   |
-| BSR                     | CAR           | TODO   | Trailer lights controller            |
-| ALARM                   | CAR           | TODO   | Volumetric alarm                     |
-| HDC/VMF/COM200X         | CAR           | TODO   | Steering wheel commands              |
-
-There's plenty of controllers that aren't in this list yet, i'll update it when new controllers are confirmed in AEE2004
-
 
 ## What to do with this
 
