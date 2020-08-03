@@ -1,5 +1,9 @@
 # PSA AEE2004 reverse engineering
 
+## Moved!
+
+This repository is currently being moved to https://git.prototux.net/reverse-engineering/psa/canbus, for up-do-date informations, check the new location's wiki and issues
+
 ## What is going on here
 
 Just some repository to document the WIP of the reverse engineering of PSA's (Peugeot, Citroen and DS cars) CANbus architecture
